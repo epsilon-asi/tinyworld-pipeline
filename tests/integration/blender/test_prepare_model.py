@@ -19,19 +19,19 @@ from typing import Any
 import pytest
 from ulid import ULID
 
-from grounded_pipeline.blender.protocol import (
+from tinyworld_pipeline.blender.protocol import (
     JobRequest,
     JobResult,
     PrepareModelData,
     PrepareModelParams,
 )
-from grounded_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
-from grounded_pipeline.domain.errors import BlenderJobError
-from grounded_pipeline.domain.library_config import GeometrySection, UvSection
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.gltf.fingerprint import surface_fingerprint
-from grounded_pipeline.gltf.loader import load_glb
-from grounded_pipeline.pipeline.hashing import file_sha
+from tinyworld_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
+from tinyworld_pipeline.domain.errors import BlenderJobError
+from tinyworld_pipeline.domain.library_config import GeometrySection, UvSection
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.gltf.fingerprint import surface_fingerprint
+from tinyworld_pipeline.gltf.loader import load_glb
+from tinyworld_pipeline.pipeline.hashing import file_sha
 
 pytestmark = pytest.mark.blender
 

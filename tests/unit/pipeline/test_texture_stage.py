@@ -14,34 +14,34 @@ import structlog
 
 from fakes.fake_texture_provider import FakeTextureProvider
 from fakes.glb_builder import cube, encode_image, solid_image, write_glb
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain.errors import (
     BudgetExceededError,
     StagePrereqError,
     TripoTaskFailedError,
 )
-from grounded_pipeline.domain.library_config import LibraryConfig, TextureSection, TripoSection
-from grounded_pipeline.domain.model_spec import (
+from tinyworld_pipeline.domain.library_config import LibraryConfig, TextureSection, TripoSection
+from tinyworld_pipeline.domain.model_spec import (
     ModelDocument,
     ModelFrontMatter,
     ResolvedModel,
     TextureOverrides,
 )
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.domain.prompt import ComposedPrompt
-from grounded_pipeline.domain.state import ModelState, StageName, StageRecord
-from grounded_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
-from grounded_pipeline.library.paths import LibraryPaths, ModelPaths
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.hashing import cfg_dump, file_sha, sha_many
-from grounded_pipeline.pipeline.options import RunOptions
-from grounded_pipeline.pipeline.stage import Stage
-from grounded_pipeline.pipeline.stages.texture import (
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.domain.prompt import ComposedPrompt
+from tinyworld_pipeline.domain.state import ModelState, StageName, StageRecord
+from tinyworld_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
+from tinyworld_pipeline.library.paths import LibraryPaths, ModelPaths
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.hashing import cfg_dump, file_sha, sha_many
+from tinyworld_pipeline.pipeline.options import RunOptions
+from tinyworld_pipeline.pipeline.stage import Stage
+from tinyworld_pipeline.pipeline.stages.texture import (
     EXTRA_REQUEST_SHA,
     EXTRA_TASK_ID,
     TextureStage,
 )
-from grounded_pipeline.texturing.request_builder import build_texture_request
-from grounded_pipeline.tripo.budget import CreditBudget
+from tinyworld_pipeline.texturing.request_builder import build_texture_request
+from tinyworld_pipeline.tripo.budget import CreditBudget
 
 PROMPT = "a red ant, stylised"
 RUN_ID = "01ARZ3NDEKTSV4RRFFQ69G5FAV"

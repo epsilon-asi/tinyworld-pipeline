@@ -9,10 +9,10 @@ from typing import Any
 import pytest
 
 from fakes.glb_builder import cube
-from grounded_pipeline.domain.errors import StagePrereqError
-from grounded_pipeline.domain.model_spec import GuidanceImages, ResolvedModel, TextureOverrides
-from grounded_pipeline.texturing.provider import GuidanceMode
-from grounded_pipeline.texturing.request_builder import (
+from tinyworld_pipeline.domain.errors import StagePrereqError
+from tinyworld_pipeline.domain.model_spec import GuidanceImages, ResolvedModel, TextureOverrides
+from tinyworld_pipeline.texturing.provider import GuidanceMode
+from tinyworld_pipeline.texturing.request_builder import (
     PROVIDER_TAG,
     build_texture_request,
     guidance_mode,

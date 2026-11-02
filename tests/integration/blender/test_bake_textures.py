@@ -26,7 +26,7 @@ import pytest
 from PIL import Image
 from ulid import ULID
 
-from grounded_pipeline.blender.protocol import (
+from tinyworld_pipeline.blender.protocol import (
     BakeTexturesData,
     BakeTexturesParams,
     JobRequest,
@@ -34,9 +34,9 @@ from grounded_pipeline.blender.protocol import (
     PrepareModelData,
     PrepareModelParams,
 )
-from grounded_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
-from grounded_pipeline.domain.library_config import BakeSection, GeometrySection, UvSection
-from grounded_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
+from tinyworld_pipeline.domain.library_config import BakeSection, GeometrySection, UvSection
+from tinyworld_pipeline.domain.ports import CancelToken
 
 pytestmark = pytest.mark.blender
 

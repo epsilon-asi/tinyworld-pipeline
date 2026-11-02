@@ -4,7 +4,7 @@ from typing import Any
 
 import pytest
 
-from grounded_pipeline.observability.logging import SecretRedactor, mask_secret
+from tinyworld_pipeline.observability.logging import SecretRedactor, mask_secret
 
 from .conftest import SECRET
 

@@ -11,8 +11,8 @@ from hypothesis import given, settings
 from hypothesis import strategies as st
 
 from fakes.glb_builder import MaterialSpec, NodeSpec, cube, cube_mesh, from_mesh, quad, write_glb
-from grounded_pipeline.gltf.fingerprint import fit_affine, normalise_positions, surface_fingerprint
-from grounded_pipeline.gltf.loader import GlbDocument, GlbMesh, load_glb
+from tinyworld_pipeline.gltf.fingerprint import fit_affine, normalise_positions, surface_fingerprint
+from tinyworld_pipeline.gltf.loader import GlbDocument, GlbMesh, load_glb
 
 Q = {"q_pos": 1e-4, "q_uv": 1e-4}
 

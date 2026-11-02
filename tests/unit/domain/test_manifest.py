@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from grounded_pipeline.domain.manifest import (
+from tinyworld_pipeline.domain.manifest import (
     Manifest,
     ManifestAnimation,
     ManifestColor,

@@ -7,9 +7,9 @@ from typing import get_args, get_origin
 import pytest
 from pydantic import BaseModel
 
-from grounded_pipeline.config.layering import make_partial
-from grounded_pipeline.domain import model_spec
-from grounded_pipeline.domain.library_config import SECTION_MODELS
+from tinyworld_pipeline.config.layering import make_partial
+from tinyworld_pipeline.domain import model_spec
+from tinyworld_pipeline.domain.library_config import SECTION_MODELS
 
 OVERRIDE_CLASSES: dict[str, type[BaseModel]] = {
     "geometry": model_spec.GeometryOverrides,

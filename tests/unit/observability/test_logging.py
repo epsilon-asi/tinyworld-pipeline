@@ -12,8 +12,8 @@ from typing import Any
 import pytest
 import structlog
 
-from grounded_pipeline.observability import events
-from grounded_pipeline.observability.logging import (
+from tinyworld_pipeline.observability import events
+from tinyworld_pipeline.observability.logging import (
     THIRD_PARTY_LOGGERS,
     LoggingHandle,
     bind_context,

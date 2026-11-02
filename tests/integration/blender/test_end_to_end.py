@@ -24,8 +24,8 @@ from pathlib import Path
 import pytest
 
 from fakes.fake_texture_provider import FakeTextureProvider
-from grounded_pipeline.domain.manifest import Manifest, json_utility_violations
-from grounded_pipeline.domain.state import STAGE_ORDER
+from tinyworld_pipeline.domain.manifest import Manifest, json_utility_violations
+from tinyworld_pipeline.domain.state import STAGE_ORDER
 
 from .e2e_helpers import (
     BAKE_RUN_JOBS,
@@ -57,6 +57,10 @@ def extract_e2e(blender_exe: Path, tmp_path_factory: pytest.TempPathFactory) -> 
     e2e = E2E.create(lib, blender_exe, provider)
     e2e.first = e2e.run()
     e2e.first_jobs = list(e2e.jobs)
+    # Snapshot now: later tests in this module (prompt edit) legitimately rewrite the manifest,
+    # and pytest-randomly may run them first.
+    e2e.first_manifest = e2e.manifest()
+    e2e.first_task_id = e2e.provider.calls[0].task_id
     return e2e
 
 
@@ -98,7 +102,7 @@ def test_full_pipeline_extract_route(extract_e2e: E2E) -> None:
         "textures",
     ]
 
-    manifest = e2e.manifest()
+    manifest = e2e.first_manifest
     Manifest.model_validate(manifest)
     assert json_utility_violations(manifest) == []
     assert manifest["model_id"] == MODEL
@@ -113,7 +117,7 @@ def test_full_pipeline_extract_route(extract_e2e: E2E) -> None:
     provenance = manifest["provenance"]
     assert provenance["texture_route"] == "extract"
     assert provenance["rig_fidelity"] == "pass"
-    assert provenance["texture_task_id"] == e2e.provider.calls[0].task_id
+    assert provenance["texture_task_id"] == e2e.first_task_id
     assert provenance["credits_consumed"] == CREDITS
     assert provenance["subdivision_levels"] == 1
     assert provenance["uv_decision"] == "unwrapped"  # 4x4 fixture texture is a palette

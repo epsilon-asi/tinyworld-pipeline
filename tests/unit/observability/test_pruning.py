@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.observability.pruning import (
+from tinyworld_pipeline.observability.pruning import (
     STAGE_LOG_RE,
     prune_job_dirs,
     prune_stage_logs,

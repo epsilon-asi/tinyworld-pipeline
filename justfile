@@ -1,4 +1,4 @@
-# Grounded pipeline developer commands. `just --list` shows them.
+# Tinyworld pipeline developer commands. `just --list` shows them.
 
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
@@ -28,7 +28,7 @@ type:
 # Unit tests with the 80 % line/branch/function coverage gates. Excludes Blender and live Tripo suites.
 test *ARGS:
     uv run pytest -n auto -m "not blender and not tripo_live" \
-        --cov=grounded_pipeline --cov-branch --cov-report=term-missing --cov-report=json \
+        --cov=tinyworld_pipeline --cov-branch --cov-report=term-missing --cov-report=json \
         --cov-fail-under=80 {{ARGS}}
     uv run python tools/check_function_coverage.py coverage.json --threshold 80
 

@@ -1,4 +1,4 @@
-# grounded-pipeline (`gp`)
+# tinyworld-pipeline (`gp`)
 
 Upres and retexture already-rigged, already-animated 3D models into one consistent, hand-painted
 art style, and deliver Unity-ready FBX + textures + manifest with the animations intact.

@@ -224,72 +224,6 @@ wheels = [
 ]
 
 [[package]]
-name = "grounded-pipeline"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "filelock" },
-    { name = "httpx" },
-    { name = "numpy" },
-    { name = "pillow" },
-    { name = "pydantic" },
-    { name = "pydantic-settings" },
-    { name = "pygltflib" },
-    { name = "python-frontmatter" },
-    { name = "python-ulid" },
-    { name = "structlog" },
-    { name = "tenacity" },
-    { name = "tomli-w" },
-    { name = "typer" },
-]
-
-[package.optional-dependencies]
-dev = [
-    { name = "fake-bpy-module-4-5" },
-    { name = "hypothesis" },
-    { name = "import-linter" },
-    { name = "mypy" },
-    { name = "pre-commit" },
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "pytest-randomly" },
-    { name = "pytest-xdist" },
-    { name = "respx" },
-    { name = "ruff" },
-    { name = "types-pyyaml" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fake-bpy-module-4-5", marker = "extra == 'dev'", specifier = ">=20250801" },
-    { name = "filelock", specifier = ">=3.16,<4.0" },
-    { name = "httpx", specifier = ">=0.27,<1.0" },
-    { name = "hypothesis", marker = "extra == 'dev'", specifier = ">=6.112,<7.0" },
-    { name = "import-linter", marker = "extra == 'dev'", specifier = ">=2.1,<3.0" },
-    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.13,<2.0" },
-    { name = "numpy", specifier = ">=2.0,<3.0" },
-    { name = "pillow", specifier = ">=10.4,<13.0" },
-    { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=4.0,<5.0" },
-    { name = "pydantic", specifier = ">=2.9,<3.0" },
-    { name = "pydantic-settings", specifier = ">=2.6,<3.0" },
-    { name = "pygltflib", specifier = ">=1.16,<2.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3,<10.0" },
-    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=6.0,<8.0" },
-    { name = "pytest-randomly", marker = "extra == 'dev'", specifier = ">=3.15,<4.0" },
-    { name = "pytest-xdist", marker = "extra == 'dev'", specifier = ">=3.6,<4.0" },
-    { name = "python-frontmatter", specifier = ">=1.1,<2.0" },
-    { name = "python-ulid", specifier = ">=3.0,<5.0" },
-    { name = "respx", marker = "extra == 'dev'", specifier = ">=0.21,<1.0" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.7,<1.0" },
-    { name = "structlog", specifier = ">=24.4,<26.0" },
-    { name = "tenacity", specifier = ">=9.0,<10.0" },
-    { name = "tomli-w", specifier = ">=1.1,<2.0" },
-    { name = "typer", specifier = ">=0.15,<1.0" },
-    { name = "types-pyyaml", marker = "extra == 'dev'", specifier = ">=6.0" },
-]
-provides-extras = ["dev"]
-
-[[package]]
 name = "h11"
 version = "0.16.0"
 source = { registry = "https://pypi.org/simple" }
@@ -971,6 +905,72 @@ sdist = { url = "https://files.pythonhosted.org/packages/82/9e/497c1c8ebe5a5b5d1
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d6/26/1ff2b0721ac66a3ec5b1402b333110b352ab0a8724052ac279a7b82d40c4/tenacity-9.2.1-py3-none-any.whl", hash = "sha256:9e56f17539296baab7beabb08b92f6ee3d7be92d8be72d763360677c2ad6580e", size = 32310, upload-time = "2026-10-07T12:13:00.102Z" },
 ]
+
+[[package]]
+name = "tinyworld-pipeline"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "filelock" },
+    { name = "httpx" },
+    { name = "numpy" },
+    { name = "pillow" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
+    { name = "pygltflib" },
+    { name = "python-frontmatter" },
+    { name = "python-ulid" },
+    { name = "structlog" },
+    { name = "tenacity" },
+    { name = "tomli-w" },
+    { name = "typer" },
+]
+
+[package.optional-dependencies]
+dev = [
+    { name = "fake-bpy-module-4-5" },
+    { name = "hypothesis" },
+    { name = "import-linter" },
+    { name = "mypy" },
+    { name = "pre-commit" },
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "pytest-randomly" },
+    { name = "pytest-xdist" },
+    { name = "respx" },
+    { name = "ruff" },
+    { name = "types-pyyaml" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fake-bpy-module-4-5", marker = "extra == 'dev'", specifier = ">=20250801" },
+    { name = "filelock", specifier = ">=3.16,<4.0" },
+    { name = "httpx", specifier = ">=0.27,<1.0" },
+    { name = "hypothesis", marker = "extra == 'dev'", specifier = ">=6.112,<7.0" },
+    { name = "import-linter", marker = "extra == 'dev'", specifier = ">=2.1,<3.0" },
+    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.13,<2.0" },
+    { name = "numpy", specifier = ">=2.0,<3.0" },
+    { name = "pillow", specifier = ">=10.4,<13.0" },
+    { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=4.0,<5.0" },
+    { name = "pydantic", specifier = ">=2.9,<3.0" },
+    { name = "pydantic-settings", specifier = ">=2.6,<3.0" },
+    { name = "pygltflib", specifier = ">=1.16,<2.0" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3,<10.0" },
+    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=6.0,<8.0" },
+    { name = "pytest-randomly", marker = "extra == 'dev'", specifier = ">=3.15,<4.0" },
+    { name = "pytest-xdist", marker = "extra == 'dev'", specifier = ">=3.6,<4.0" },
+    { name = "python-frontmatter", specifier = ">=1.1,<2.0" },
+    { name = "python-ulid", specifier = ">=3.0,<5.0" },
+    { name = "respx", marker = "extra == 'dev'", specifier = ">=0.21,<1.0" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.7,<1.0" },
+    { name = "structlog", specifier = ">=24.4,<26.0" },
+    { name = "tenacity", specifier = ">=9.0,<10.0" },
+    { name = "tomli-w", specifier = ">=1.1,<2.0" },
+    { name = "typer", specifier = ">=0.15,<1.0" },
+    { name = "types-pyyaml", marker = "extra == 'dev'", specifier = ">=6.0" },
+]
+provides-extras = ["dev"]
 
 [[package]]
 name = "tomli-w"

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 
-from grounded_pipeline.observability import events
+from tinyworld_pipeline.observability import events
 
 _EVENT_RE = re.compile(r"^[a-z][a-z0-9_]*\.[a-z][a-z0-9_]*$")
 

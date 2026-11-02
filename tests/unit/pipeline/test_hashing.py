@@ -6,9 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.domain.library_config import VerifySection
-from grounded_pipeline.pipeline import hashing
-from grounded_pipeline.pipeline.hashing import (
+from tinyworld_pipeline.domain.library_config import VerifySection
+from tinyworld_pipeline.pipeline import hashing
+from tinyworld_pipeline.pipeline.hashing import (
     blender_jobs_code_sha,
     cfg_dump,
     clear_caches,
@@ -78,7 +78,7 @@ def test_blender_jobs_code_sha_changes_when_a_job_file_changes(
     baseline = blender_jobs_code_sha()
     assert baseline == blender_jobs_code_sha()  # cached
     src_root = Path(hashing.__file__).resolve().parents[1]
-    fake_pkg = tmp_path / "grounded_pipeline"
+    fake_pkg = tmp_path / "tinyworld_pipeline"
     shutil.copytree(src_root / "blender_jobs", fake_pkg / "blender_jobs")
     (fake_pkg / "pipeline").mkdir()
     monkeypatch.setattr(hashing, "__file__", str(fake_pkg / "pipeline" / "hashing.py"))

@@ -13,8 +13,8 @@ import pytest
 import respx
 from pydantic import SecretStr
 
-from grounded_pipeline.tripo.client import TripoClient
-from grounded_pipeline.tripo.polling import RateLimiter
+from tinyworld_pipeline.tripo.client import TripoClient
+from tinyworld_pipeline.tripo.polling import RateLimiter
 
 FIXTURE_DIR = Path(__file__).resolve().parents[2] / "fixtures" / "tripo"
 BASE_URL = "https://fixture.local/v3"

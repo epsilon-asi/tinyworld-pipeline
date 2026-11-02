@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.domain.errors import HandoffError
-from grounded_pipeline.unity.sync import SyncReport, copy_model, validate_dest
+from tinyworld_pipeline.domain.errors import HandoffError
+from tinyworld_pipeline.unity.sync import SyncReport, copy_model, validate_dest
 
 FILES = {
     "cube.fbx": b"fbx-v1",

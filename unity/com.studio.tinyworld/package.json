@@ -1,0 +1,19 @@
+{
+  "name": "com.studio.tinyworld",
+  "version": "0.1.0",
+  "displayName": "Tinyworld Pipeline Importer",
+  "description": "Editor-only AssetPostprocessor that consumes tinyworld_pipeline output folders (FBX + URP textures + manifest.json): Generic rig, copied Avatar, URP/Lit materials, texture import settings.",
+  "unity": "6000.0",
+  "dependencies": {
+    "com.unity.render-pipelines.universal": "17.0.0"
+  },
+  "keywords": [
+    "pipeline",
+    "importer",
+    "urp",
+    "fbx"
+  ],
+  "author": {
+    "name": "Epsilon ASI"
+  }
+}

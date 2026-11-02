@@ -7,8 +7,8 @@ from typing import Any
 import pytest
 
 from fakes.fake_blender_runner import sample_rig
-from grounded_pipeline.blender.protocol import Bone, RigFingerprint
-from grounded_pipeline.pipeline.rig_fidelity import (
+from tinyworld_pipeline.blender.protocol import Bone, RigFingerprint
+from tinyworld_pipeline.pipeline.rig_fidelity import (
     CHECK_NAMES,
     RfcMode,
     RfcTolerances,

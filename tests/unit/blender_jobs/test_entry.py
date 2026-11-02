@@ -10,10 +10,10 @@ from typing import Any
 
 import pytest
 
-from grounded_pipeline.blender.protocol import PROTOCOL_VERSION, JobResult
-from grounded_pipeline.blender_jobs import entry, protocol
-from grounded_pipeline.blender_jobs.errors import JobFailure
-from grounded_pipeline.blender_jobs.jobs import JOBS
+from tinyworld_pipeline.blender.protocol import PROTOCOL_VERSION, JobResult
+from tinyworld_pipeline.blender_jobs import entry, protocol
+from tinyworld_pipeline.blender_jobs.errors import JobFailure
+from tinyworld_pipeline.blender_jobs.jobs import JOBS
 
 JOB_ID = "01ENTRYTEST000000000000000"
 
@@ -217,7 +217,7 @@ def test_sys_path_bootstrap_defaults_to_package_root(monkeypatch: pytest.MonkeyP
     monkeypatch.delenv("GP_SRC_DIR", raising=False)
     monkeypatch.setattr(sys, "path", [p for p in sys.path if "src" not in p])
     entry._bootstrap_sys_path()
-    assert (Path(sys.path[0]) / "grounded_pipeline" / "blender_jobs" / "entry.py").is_file()
+    assert (Path(sys.path[0]) / "tinyworld_pipeline" / "blender_jobs" / "entry.py").is_file()
 
 
 def test_module_level_imports_are_stdlib_only() -> None:
@@ -231,5 +231,5 @@ def test_module_level_imports_are_stdlib_only() -> None:
         else:
             continue
         for name in names:
-            assert not name.startswith("grounded_pipeline"), name
+            assert not name.startswith("tinyworld_pipeline"), name
             assert name.split(".")[0] not in {"bpy", "pydantic", "structlog"}, name

@@ -8,20 +8,20 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline import __version__
-from grounded_pipeline.cli.app import build_app
-from grounded_pipeline.cli.boundary import run_body
-from grounded_pipeline.cli.state import (
+from tinyworld_pipeline import __version__
+from tinyworld_pipeline.cli.app import build_app
+from tinyworld_pipeline.cli.boundary import run_body
+from tinyworld_pipeline.cli.state import (
     CliHooks,
     CliOutput,
     CliState,
     ErrorDocument,
     UnexpectedError,
 )
-from grounded_pipeline.cli.wiring import make_tripo_client, resolve_blender, secrets_from_mapping
-from grounded_pipeline.domain.errors import CancelledError, UsageError
-from grounded_pipeline.observability.console import Console
-from grounded_pipeline.observability.logging import get_logging_handle
+from tinyworld_pipeline.cli.wiring import make_tripo_client, resolve_blender, secrets_from_mapping
+from tinyworld_pipeline.domain.errors import CancelledError, UsageError
+from tinyworld_pipeline.observability.console import Console
+from tinyworld_pipeline.observability.logging import get_logging_handle
 
 from .conftest import FIXTURE_LIBRARY, Harness, MakeHarness
 

@@ -8,10 +8,10 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.blender.locate import blender_version, check_version
-from grounded_pipeline.blender.protocol import JobRequest, ProbeData
-from grounded_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
-from grounded_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.blender.locate import blender_version, check_version
+from tinyworld_pipeline.blender.protocol import JobRequest, ProbeData
+from tinyworld_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
+from tinyworld_pipeline.domain.ports import CancelToken
 
 pytestmark = pytest.mark.blender
 

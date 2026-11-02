@@ -15,19 +15,19 @@ from fakes.fake_blender_runner import (
     job_error_response,
     prepare_model_response,
 )
-from grounded_pipeline.blender.protocol import PrepareModelData, PrepareModelParams
-from grounded_pipeline.domain.errors import BlenderJobError, ProtocolDriftError
-from grounded_pipeline.domain.library_config import LibraryConfig
-from grounded_pipeline.domain.model_spec import ModelDocument, ModelFrontMatter, ResolvedModel
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.domain.prompt import ComposedPrompt
-from grounded_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
-from grounded_pipeline.library.paths import ModelPaths
-from grounded_pipeline.pipeline import hashing
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.options import RunOptions
-from grounded_pipeline.pipeline.stages import prepare
-from grounded_pipeline.pipeline.stages.prepare import (
+from tinyworld_pipeline.blender.protocol import PrepareModelData, PrepareModelParams
+from tinyworld_pipeline.domain.errors import BlenderJobError, ProtocolDriftError
+from tinyworld_pipeline.domain.library_config import LibraryConfig
+from tinyworld_pipeline.domain.model_spec import ModelDocument, ModelFrontMatter, ResolvedModel
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.domain.prompt import ComposedPrompt
+from tinyworld_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
+from tinyworld_pipeline.library.paths import ModelPaths
+from tinyworld_pipeline.pipeline import hashing
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.options import RunOptions
+from tinyworld_pipeline.pipeline.stages import prepare
+from tinyworld_pipeline.pipeline.stages.prepare import (
     PrepareStage,
     build_params,
     palette_hint_textures,

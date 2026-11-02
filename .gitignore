@@ -44,3 +44,12 @@ unity/TestProject/
 Thumbs.db
 .idea/
 .vscode/
+
+# Spike outputs: findings (md/json) are tracked, downloaded/generated assets and raw API recordings are not
+docs/spikes/**/recorded/
+docs/spikes/**/*.glb
+docs/spikes/**/*.blend
+docs/spikes/**/*.png
+docs/spikes/**/*.fbx
+docs/spikes/**/prepare/
+.import_linter_cache/

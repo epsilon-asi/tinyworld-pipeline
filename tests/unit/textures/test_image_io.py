@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 from PIL import Image
 
-from grounded_pipeline.textures.image_io import (
+from tinyworld_pipeline.textures.image_io import (
     detect_format,
     image_size,
     read_rgba,

@@ -83,4 +83,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python3 -c "import json,sys; json.load(open('unity/com.studio.grounded-pipeline/package.json'))" || echo "package.json not present yet (WP-12)"
+      - run: python3 -c "import json,sys; json.load(open('unity/com.studio.tinyworld/package.json'))" || echo "package.json not present yet (WP-12)"

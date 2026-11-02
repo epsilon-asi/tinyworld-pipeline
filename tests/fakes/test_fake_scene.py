@@ -31,9 +31,9 @@ from fakes.fake_scene import (
     source_object,
     three_bone_chain,
 )
-from grounded_pipeline.blender_jobs.rig_fingerprint import fingerprint_sha256
-from grounded_pipeline.blender_jobs.scene_api import SceneApi
-from grounded_pipeline.blender_jobs.uv_heuristics import analyse
+from tinyworld_pipeline.blender_jobs.rig_fingerprint import fingerprint_sha256
+from tinyworld_pipeline.blender_jobs.scene_api import SceneApi
+from tinyworld_pipeline.blender_jobs.uv_heuristics import analyse
 
 
 def test_builders_shape() -> None:
@@ -339,10 +339,10 @@ def _stub_module(name: str) -> types.ModuleType:
 def bpy_scene_module(monkeypatch: pytest.MonkeyPatch) -> Any:
     for name in ("bpy", "bmesh", "mathutils"):
         monkeypatch.setitem(sys.modules, name, _stub_module(name))
-    monkeypatch.delitem(sys.modules, "grounded_pipeline.blender_jobs.bpy_scene", raising=False)
-    module = importlib.import_module("grounded_pipeline.blender_jobs.bpy_scene")
+    monkeypatch.delitem(sys.modules, "tinyworld_pipeline.blender_jobs.bpy_scene", raising=False)
+    module = importlib.import_module("tinyworld_pipeline.blender_jobs.bpy_scene")
     yield module
-    monkeypatch.delitem(sys.modules, "grounded_pipeline.blender_jobs.bpy_scene", raising=False)
+    monkeypatch.delitem(sys.modules, "tinyworld_pipeline.blender_jobs.bpy_scene", raising=False)
 
 
 def _public_methods(cls: type) -> dict[str, inspect.Signature]:

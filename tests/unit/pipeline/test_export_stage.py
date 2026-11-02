@@ -17,23 +17,23 @@ from fakes.fake_blender_runner import (
     sample_prepare_data,
     sample_rig,
 )
-from grounded_pipeline.blender.protocol import (
+from tinyworld_pipeline.blender.protocol import (
     Bone,
     ExportRiggedParams,
     RigFingerprint,
     RoundtripAnimationParams,
 )
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain.errors import (
     AnimNameCollisionError,
     BlenderJobError,
     ProtocolDriftError,
     RigFidelityError,
     StagePrereqError,
 )
-from grounded_pipeline.pipeline import hashing
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.stages import export as export_mod
-from grounded_pipeline.pipeline.stages.export import (
+from tinyworld_pipeline.pipeline import hashing
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.stages import export as export_mod
+from tinyworld_pipeline.pipeline.stages.export import (
     ANIMATIONS_DIR,
     EXPORT_DIR,
     RIG_FIDELITY_REPORT,

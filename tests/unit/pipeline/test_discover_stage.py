@@ -4,17 +4,17 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.config.layering import CliOverrides
-from grounded_pipeline.domain.state import StageStatus, downstream_of
-from grounded_pipeline.library.discovery import Library
-from grounded_pipeline.library.resolve import discover_fingerprint
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.stages.discover import (
+from tinyworld_pipeline.config.layering import CliOverrides
+from tinyworld_pipeline.domain.state import StageStatus, downstream_of
+from tinyworld_pipeline.library.discovery import Library
+from tinyworld_pipeline.library.resolve import discover_fingerprint
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.stages.discover import (
     INVALIDATED_BY_VERSION,
     DiscoverStage,
     major_version,
 )
-from grounded_pipeline.pipeline.state_store import InMemoryStateStore
+from tinyworld_pipeline.pipeline.state_store import InMemoryStateStore
 
 from .conftest import make_context, model_context
 

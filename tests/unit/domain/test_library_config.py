@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from pydantic import ValidationError
 
-from grounded_pipeline.domain.library_config import (
+from tinyworld_pipeline.domain.library_config import (
     SECTION_MODELS,
     BakeSection,
     GeometrySection,

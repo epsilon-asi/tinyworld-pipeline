@@ -18,17 +18,17 @@ import respx
 from pydantic import SecretStr
 
 from fakes.glb_builder import cube, encode_image, solid_image, write_glb
-from grounded_pipeline.domain.library_config import LibraryConfig, TextureSection, TripoSection
-from grounded_pipeline.domain.model_spec import (
+from tinyworld_pipeline.domain.library_config import LibraryConfig, TextureSection, TripoSection
+from tinyworld_pipeline.domain.model_spec import (
     ModelDocument,
     ModelFrontMatter,
     ResolvedModel,
     TextureOverrides,
 )
-from grounded_pipeline.domain.prompt import ComposedPrompt
-from grounded_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
-from grounded_pipeline.tripo.client import TripoClient
-from grounded_pipeline.tripo.polling import RateLimiter
+from tinyworld_pipeline.domain.prompt import ComposedPrompt
+from tinyworld_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
+from tinyworld_pipeline.tripo.client import TripoClient
+from tinyworld_pipeline.tripo.polling import RateLimiter
 
 FIXTURE_DIR = Path(__file__).resolve().parents[2] / "fixtures" / "tripo"
 BASE_URL = "https://fixture.local/v3"

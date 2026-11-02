@@ -3,10 +3,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from grounded_pipeline.domain.reports import ModelRunSummary, RunReport
-from grounded_pipeline.domain.state import StageStatus
-from grounded_pipeline.pipeline.planner import ModelPlan, PlannedStage, RunPlan
-from grounded_pipeline.pipeline.report import (
+from tinyworld_pipeline.domain.reports import ModelRunSummary, RunReport
+from tinyworld_pipeline.domain.state import StageStatus
+from tinyworld_pipeline.pipeline.planner import ModelPlan, PlannedStage, RunPlan
+from tinyworld_pipeline.pipeline.report import (
     PLAN_HEADER,
     append_console,
     build_environment,

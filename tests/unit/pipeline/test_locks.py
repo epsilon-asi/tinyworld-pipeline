@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.domain.errors import LibraryBusyError
-from grounded_pipeline.pipeline.locks import blender_semaphore, run_lock
+from tinyworld_pipeline.domain.errors import LibraryBusyError
+from tinyworld_pipeline.pipeline.locks import blender_semaphore, run_lock
 
 
 def test_run_lock_creates_parent_and_releases(tmp_path: Path) -> None:

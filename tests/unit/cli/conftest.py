@@ -18,20 +18,20 @@ from typer.testing import CliRunner, Result
 
 from fakes.fake_blender_runner import FakeBlenderRunner, prepare_model_response
 from fakes.fake_texture_provider import FakeTextureProvider
-from grounded_pipeline import __version__
-from grounded_pipeline.blender.locate import BlenderInfo
-from grounded_pipeline.cli.app import build_app
-from grounded_pipeline.cli.state import BlenderResolver, CliOutput, TripoClientFactory
-from grounded_pipeline.config.layering import CliOverrides
-from grounded_pipeline.domain.library_config import BlenderSection, TripoSection
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.observability.console import Console, RecordingConsole
-from grounded_pipeline.pipeline.context import PipelineContext
-from grounded_pipeline.pipeline.runner import ContextFactory, RunSetup
-from grounded_pipeline.pipeline.state_store import JsonStateStore
-from grounded_pipeline.pipeline.timing import SystemClock, SystemSleeper
-from grounded_pipeline.tripo.client import TripoClient
-from grounded_pipeline.tripo.polling import RateLimiter
+from tinyworld_pipeline import __version__
+from tinyworld_pipeline.blender.locate import BlenderInfo
+from tinyworld_pipeline.cli.app import build_app
+from tinyworld_pipeline.cli.state import BlenderResolver, CliOutput, TripoClientFactory
+from tinyworld_pipeline.config.layering import CliOverrides
+from tinyworld_pipeline.domain.library_config import BlenderSection, TripoSection
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.observability.console import Console, RecordingConsole
+from tinyworld_pipeline.pipeline.context import PipelineContext
+from tinyworld_pipeline.pipeline.runner import ContextFactory, RunSetup
+from tinyworld_pipeline.pipeline.state_store import JsonStateStore
+from tinyworld_pipeline.pipeline.timing import SystemClock, SystemSleeper
+from tinyworld_pipeline.tripo.client import TripoClient
+from tinyworld_pipeline.tripo.polling import RateLimiter
 
 FIXTURE_LIBRARY = Path(__file__).resolve().parents[2] / "fixtures" / "library_minimal"
 FAKE_BLENDER = BlenderInfo(path=Path("/fake/blender"), version=(4, 5, 12))

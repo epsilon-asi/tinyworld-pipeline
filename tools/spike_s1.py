@@ -31,10 +31,10 @@ from typing import Any
 from pydantic import SecretStr
 from ulid import ULID
 
-from grounded_pipeline.blender.protocol import JobRequest, PrepareModelData, PrepareModelParams
-from grounded_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
-from grounded_pipeline.domain.errors import PipelineError
-from grounded_pipeline.domain.library_config import (
+from tinyworld_pipeline.blender.protocol import JobRequest, PrepareModelData, PrepareModelParams
+from tinyworld_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
+from tinyworld_pipeline.domain.errors import PipelineError
+from tinyworld_pipeline.domain.library_config import (
     TRIPO_DEFAULT_BASE_URL,
     TRIPO_DEFAULT_MODEL_VERSION,
     GeometrySection,
@@ -42,14 +42,14 @@ from grounded_pipeline.domain.library_config import (
     UvSection,
     VerifySection,
 )
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.gltf.loader import load_glb
-from grounded_pipeline.gltf.verify import verify_surfaces
-from grounded_pipeline.pipeline.timing import SystemClock, SystemSleeper
-from grounded_pipeline.texturing.provider import GuidanceMode, TextureRequest
-from grounded_pipeline.texturing.tripo_provider import TripoTextureProvider
-from grounded_pipeline.tripo.client import TripoClient
-from grounded_pipeline.tripo.polling import RateLimiter
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.gltf.loader import load_glb
+from tinyworld_pipeline.gltf.verify import verify_surfaces
+from tinyworld_pipeline.pipeline.timing import SystemClock, SystemSleeper
+from tinyworld_pipeline.texturing.provider import GuidanceMode, TextureRequest
+from tinyworld_pipeline.texturing.tripo_provider import TripoTextureProvider
+from tinyworld_pipeline.tripo.client import TripoClient
+from tinyworld_pipeline.tripo.polling import RateLimiter
 
 DEFAULT_BLENDER = Path("/Applications/Blender.app/Contents/MacOS/Blender")
 PROMPT = (

@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.domain import errors
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain import errors
+from tinyworld_pipeline.domain.errors import (
     BlenderJobError,
     BlenderNotFoundError,
     BudgetExceededError,

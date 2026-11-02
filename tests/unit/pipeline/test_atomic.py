@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.domain.state import StageRecord
-from grounded_pipeline.pipeline.atomic import (
+from tinyworld_pipeline.domain.state import StageRecord
+from tinyworld_pipeline.pipeline.atomic import (
     atomic_replace_dir,
     atomic_write_bytes,
     atomic_write_json,

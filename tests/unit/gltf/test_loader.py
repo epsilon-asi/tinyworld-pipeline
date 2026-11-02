@@ -25,8 +25,8 @@ from fakes.glb_builder import (
     textured_set,
     write_glb,
 )
-from grounded_pipeline.domain.errors import UnsupportedGlbError
-from grounded_pipeline.gltf.loader import GlbTextureRef, load_glb, sniff_image_mime
+from tinyworld_pipeline.domain.errors import UnsupportedGlbError
+from tinyworld_pipeline.gltf.loader import GlbTextureRef, load_glb, sniff_image_mime
 
 GlbWriter = Callable[[bytes], Path]
 

@@ -5,10 +5,10 @@ from __future__ import annotations
 from collections.abc import Mapping
 from pathlib import Path
 
-from grounded_pipeline.blender.locate import BlenderInfo
-from grounded_pipeline.cli.wiring import W_BLENDER_VERSION
-from grounded_pipeline.domain.errors import BlenderNotFoundError
-from grounded_pipeline.domain.library_config import BlenderSection
+from tinyworld_pipeline.blender.locate import BlenderInfo
+from tinyworld_pipeline.cli.wiring import W_BLENDER_VERSION
+from tinyworld_pipeline.domain.errors import BlenderNotFoundError
+from tinyworld_pipeline.domain.library_config import BlenderSection
 
 from .conftest import Harness, MakeHarness
 

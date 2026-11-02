@@ -15,20 +15,20 @@ from typing import Any, cast
 import pytest
 import structlog
 
-from grounded_pipeline.blender.runner import BlenderRunner
-from grounded_pipeline.config.layering import CliOverrides
-from grounded_pipeline.domain.ports import CancelToken, Clock, Sleeper
-from grounded_pipeline.domain.state import STAGE_ORDER, StageName, StageOutcome
-from grounded_pipeline.library.discovery import Library
-from grounded_pipeline.library.resolve import resolve_model
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.graph import StageGraph
-from grounded_pipeline.pipeline.hashing import sha_text
-from grounded_pipeline.pipeline.options import RunOptions
-from grounded_pipeline.pipeline.state_store import InMemoryStateStore, StateStore
-from grounded_pipeline.pipeline.timing import SystemClock, SystemSleeper
-from grounded_pipeline.texturing.provider import TextureProvider
-from grounded_pipeline.tripo.budget import CreditBudget
+from tinyworld_pipeline.blender.runner import BlenderRunner
+from tinyworld_pipeline.config.layering import CliOverrides
+from tinyworld_pipeline.domain.ports import CancelToken, Clock, Sleeper
+from tinyworld_pipeline.domain.state import STAGE_ORDER, StageName, StageOutcome
+from tinyworld_pipeline.library.discovery import Library
+from tinyworld_pipeline.library.resolve import resolve_model
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.graph import StageGraph
+from tinyworld_pipeline.pipeline.hashing import sha_text
+from tinyworld_pipeline.pipeline.options import RunOptions
+from tinyworld_pipeline.pipeline.state_store import InMemoryStateStore, StateStore
+from tinyworld_pipeline.pipeline.timing import SystemClock, SystemSleeper
+from tinyworld_pipeline.texturing.provider import TextureProvider
+from tinyworld_pipeline.tripo.budget import CreditBudget
 
 FIXTURE_LIBRARY = Path(__file__).resolve().parents[2] / "fixtures" / "library_minimal"
 PIPELINE_VERSION = "0.1.0"

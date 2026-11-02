@@ -61,7 +61,7 @@ library/
 schema_version = 1
 
 [library]
-name = "grounded-creatures"
+name = "tinyworld-creatures"
 unity_import_dir = ""              # e.g. "D:/Game/Assets/Art/Creatures" ; empty = no sync
 concurrency = 2                    # models processed in parallel
 blender_parallelism = 1            # simultaneous Blender processes
@@ -157,7 +157,7 @@ CLI flags. Precedence is defined in `07_config_and_secrets.md`.
 ```markdown
 ---
 schema_version: 1
-name: grounded-adjacent
+name: tinyworld
 primary_reference: references/primary.png
 negative_terms: ["outline", "cel shading", "pixel art", "photorealistic"]   # kept for future providers
 ---

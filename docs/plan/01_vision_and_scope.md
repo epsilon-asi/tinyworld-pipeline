@@ -3,7 +3,7 @@
 ## Vision
 
 Build an in-house, repeatable asset pipeline that lets a small team produce a **visually unified
-creature roster** in a *Grounded*-adjacent art style (smooth shading, hand-painted/stylized PBR,
+creature roster** in a stylized hand-painted art style (smooth shading, hand-painted/stylized PBR,
 saturated colours, no outlines) from heterogeneous inputs:
 
 1. **Now (v1):** free or licensed models that are already rigged and animated. We keep their skeletons
@@ -60,7 +60,7 @@ The folder *is* the database.
    animations playing.
 2. Re-running `gp run` with no changes performs no Blender or Tripo work (all stages cached).
 3. Changing only the prompt in one `model.md` re-runs only `texture → handoff` for that model.
-4. `pytest --cov` reports ≥80 % line, branch and function coverage over `src/grounded_pipeline`
+4. `pytest --cov` reports ≥80 % line, branch and function coverage over `src/tinyworld_pipeline`
    (excluding the thin `bpy` adapter module, which is covered by the Blender integration suite).
 5. `gp run --dry-run` prints an accurate credit estimate; a run that would exceed the configured budget
    refuses to start Tripo tasks.

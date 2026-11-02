@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.domain.textures import RawTextureSet, TextureFactors
+from tinyworld_pipeline.domain.textures import RawTextureSet, TextureFactors
 
 
 def test_texture_factors_defaults_are_gltf_defaults() -> None:

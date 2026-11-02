@@ -6,14 +6,14 @@ from pathlib import Path
 import pytest
 
 from fakes.glb_builder import cube, textured_set, write_glb
-from grounded_pipeline.domain.errors import VerifySelfMismatchError
-from grounded_pipeline.domain.library_config import VerifySection
-from grounded_pipeline.gltf.fingerprint import surface_fingerprint
-from grounded_pipeline.gltf.loader import load_glb
-from grounded_pipeline.library.discovery import Library
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.options import RunOptions
-from grounded_pipeline.pipeline.stages.verify import (
+from tinyworld_pipeline.domain.errors import VerifySelfMismatchError
+from tinyworld_pipeline.domain.library_config import VerifySection
+from tinyworld_pipeline.gltf.fingerprint import surface_fingerprint
+from tinyworld_pipeline.gltf.loader import load_glb
+from tinyworld_pipeline.library.discovery import Library
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.options import RunOptions
+from tinyworld_pipeline.pipeline.stages.verify import (
     PREPARE_REPORT,
     RESULT_GLB,
     STATIC_GLB,

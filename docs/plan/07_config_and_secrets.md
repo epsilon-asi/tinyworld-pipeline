@@ -42,12 +42,12 @@ Rules:
 
 | Secret | Source | Notes |
 |---|---|---|
-| `TRIPO_API_KEY` | env var or `.env` in the current working directory or `~/.config/grounded-pipeline/.env` | Never in `library.toml`, never in `model.md`, never logged. The client redacts it from all log/exception text (`****` + last 4 chars). |
+| `TRIPO_API_KEY` | env var or `.env` in the current working directory or `~/.config/tinyworld-pipeline/.env` | Never in `library.toml`, never in `model.md`, never logged. The client redacts it from all log/exception text (`****` + last 4 chars). |
 
 ```python
 # config/settings.py  # NORMATIVE
 class Secrets(BaseSettings):
-    model_config = SettingsConfigDict(env_file=(".env", "~/.config/grounded-pipeline/.env"),
+    model_config = SettingsConfigDict(env_file=(".env", "~/.config/tinyworld-pipeline/.env"),
                                       env_file_encoding="utf-8", extra="ignore")
     tripo_api_key: SecretStr | None = Field(None, alias="TRIPO_API_KEY")
 ```

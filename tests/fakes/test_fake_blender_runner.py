@@ -14,10 +14,10 @@ from fakes.fake_blender_runner import (
     prepare_model_response,
     sample_prepare_data,
 )
-from grounded_pipeline.blender.protocol import JobRequest, JobResult, PrepareModelData
-from grounded_pipeline.domain.errors import BlenderJobError, BlenderTimeoutError, CancelledError
-from grounded_pipeline.domain.library_config import GeometrySection, UvSection
-from grounded_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.blender.protocol import JobRequest, JobResult, PrepareModelData
+from tinyworld_pipeline.domain.errors import BlenderJobError, BlenderTimeoutError, CancelledError
+from tinyworld_pipeline.domain.library_config import GeometrySection, UvSection
+from tinyworld_pipeline.domain.ports import CancelToken
 
 JOB_ID = "01FAKERUNNER00000000000000"
 

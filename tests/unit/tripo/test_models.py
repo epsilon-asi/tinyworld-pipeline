@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from pydantic import ValidationError
 
-from grounded_pipeline.tripo.models import (
+from tinyworld_pipeline.tripo.models import (
     TERMINAL_FAILURE_STATUSES,
     ApiEnvelope,
     BalanceData,

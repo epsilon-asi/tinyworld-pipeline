@@ -14,19 +14,19 @@ import pytest
 import respx
 
 from fakes.glb_builder import cube, write_glb
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain.errors import (
     CancelledError,
     TripoDownloadError,
     TripoTaskFailedError,
 )
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.texturing.provider import GuidanceMode, TextureRequest
-from grounded_pipeline.texturing.tripo_provider import (
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.texturing.provider import GuidanceMode, TextureRequest
+from tinyworld_pipeline.texturing.tripo_provider import (
     REQUEST_BODY_KEY,
     TripoTextureProvider,
     build_texture_prompt,
 )
-from grounded_pipeline.tripo.client import TripoClient
+from tinyworld_pipeline.tripo.client import TripoClient
 
 from .conftest import (
     BASE_URL,

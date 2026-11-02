@@ -1,6 +1,6 @@
-# Grounded-Style Asset Pipeline — Implementation Plan
+# Tinyworld Asset Pipeline — Implementation Plan
 
-**Project codename:** `grounded_pipeline` (CLI: `gp`)
+**Project codename:** `tinyworld_pipeline` (CLI: `gp`)
 **Plan version:** 1.1 — 2026-11-02 (1.0 reviewed; corrections listed in `18_…` §Changelog)
 **Status:** Ready for work-package assignment
 

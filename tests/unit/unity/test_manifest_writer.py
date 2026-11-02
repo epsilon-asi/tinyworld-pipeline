@@ -7,10 +7,10 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.domain.errors import HandoffError
-from grounded_pipeline.domain.library_config import UnitySection
-from grounded_pipeline.domain.manifest import Manifest, ManifestProvenance
-from grounded_pipeline.unity.manifest_writer import (
+from tinyworld_pipeline.domain.errors import HandoffError
+from tinyworld_pipeline.domain.library_config import UnitySection
+from tinyworld_pipeline.domain.manifest import Manifest, ManifestProvenance
+from tinyworld_pipeline.unity.manifest_writer import (
     MAP_NAMES,
     UrpMaterialInputs,
     build_manifest,

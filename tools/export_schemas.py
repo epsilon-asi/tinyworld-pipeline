@@ -13,7 +13,7 @@ import json
 import sys
 from pathlib import Path
 
-from grounded_pipeline.domain.manifest import manifest_json_schema
+from tinyworld_pipeline.domain.manifest import manifest_json_schema
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMAS_DIR = ROOT / "docs" / "schemas"

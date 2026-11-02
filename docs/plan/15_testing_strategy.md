@@ -4,7 +4,7 @@
 
 | Suite | Marker | Runs where | Gate |
 |---|---|---|---|
-| Unit | (none) | every PR, every OS in matrix | ≥ 80 % **line, branch and function** coverage over `src/grounded_pipeline` (omit list in `04` §2); zero flakes; < 90 s wall time with `-n auto` |
+| Unit | (none) | every PR, every OS in matrix | ≥ 80 % **line, branch and function** coverage over `src/tinyworld_pipeline` (omit list in `04` §2); zero flakes; < 90 s wall time with `-n auto` |
 | Blender integration | `blender` | CI job with Blender 4.5 LTS; locally when `GP_BLENDER_EXE` set | must pass on `main` |
 | Tripo live | `tripo_live` | developer machine only | manual; feeds Spike S1 |
 | Unity EditMode | n/a (C#) | manual / optional CI | checklist in `12` §4.4 |

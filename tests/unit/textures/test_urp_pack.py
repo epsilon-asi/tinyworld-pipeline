@@ -9,9 +9,9 @@ from hypothesis import given, settings
 from hypothesis import strategies as st
 from PIL import Image
 
-from grounded_pipeline.domain.errors import TexturePackError
-from grounded_pipeline.domain.textures import RawTextureSet, TextureFactors
-from grounded_pipeline.textures.urp_pack import UrpTextureSet, merge_metallic_roughness, pack_urp
+from tinyworld_pipeline.domain.errors import TexturePackError
+from tinyworld_pipeline.domain.textures import RawTextureSet, TextureFactors
+from tinyworld_pipeline.textures.urp_pack import UrpTextureSet, merge_metallic_roughness, pack_urp
 
 MR = (0, 128, 64, 255)  # roughness 128 in G, metallic 64 in B
 BASE = (200, 100, 50, 255)
