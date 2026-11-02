@@ -6,14 +6,14 @@ import random
 from dataclasses import replace
 
 from fakes.fake_scene import three_bone_chain
-from grounded_pipeline.blender_jobs.rig_fingerprint import (
+from tinyworld_pipeline.blender_jobs.rig_fingerprint import (
     clean_action_name,
     fingerprint_sha256,
     ordered_bones,
     rig_fingerprint,
     transform_paths,
 )
-from grounded_pipeline.blender_jobs.scene_api import BoneInfo
+from tinyworld_pipeline.blender_jobs.scene_api import BoneInfo
 
 IDENTITY = [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]]
 

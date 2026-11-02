@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.config import settings as settings_mod
-from grounded_pipeline.config.settings import Secrets, load_secrets
+from tinyworld_pipeline.config import settings as settings_mod
+from tinyworld_pipeline.config.settings import Secrets, load_secrets
 
 
 def test_key_from_environment_is_secret_and_redacted(monkeypatch: pytest.MonkeyPatch) -> None:

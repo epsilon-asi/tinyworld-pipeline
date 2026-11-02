@@ -8,9 +8,9 @@ from typing import Any
 import pytest
 from pydantic import BaseModel
 
-from grounded_pipeline.blender import protocol as orch
-from grounded_pipeline.blender_jobs import protocol as bj
-from grounded_pipeline.domain.library_config import GeometrySection, UvSection
+from tinyworld_pipeline.blender import protocol as orch
+from tinyworld_pipeline.blender_jobs import protocol as bj
+from tinyworld_pipeline.domain.library_config import GeometrySection, UvSection
 
 
 @pytest.mark.parametrize("name", bj.MIRRORED_TYPES)

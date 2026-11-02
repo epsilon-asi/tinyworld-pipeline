@@ -7,9 +7,9 @@ from hypothesis import given, settings
 from hypothesis import strategies as st
 
 from fakes.fake_scene import cube_uv_atlas, cube_uv_palette
-from grounded_pipeline.blender_jobs.errors import JobFailure
-from grounded_pipeline.blender_jobs.protocol import E_BJ_NO_UV_KEEP, UvSection
-from grounded_pipeline.blender_jobs.uv_heuristics import UvAnalysis, analyse, decide
+from tinyworld_pipeline.blender_jobs.errors import JobFailure
+from tinyworld_pipeline.blender_jobs.protocol import E_BJ_NO_UV_KEEP, UvSection
+from tinyworld_pipeline.blender_jobs.uv_heuristics import UvAnalysis, analyse, decide
 
 Uv = tuple[float, float]
 

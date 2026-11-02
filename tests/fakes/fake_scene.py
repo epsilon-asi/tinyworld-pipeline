@@ -21,8 +21,8 @@ from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any
 
-from grounded_pipeline.blender_jobs.rig_fingerprint import clean_action_name
-from grounded_pipeline.blender_jobs.scene_api import BoneInfo, ShaderInput, Uv, Vec3
+from tinyworld_pipeline.blender_jobs.rig_fingerprint import clean_action_name
+from tinyworld_pipeline.blender_jobs.scene_api import BoneInfo, ShaderInput, Uv, Vec3
 
 FAKE_GLB_HEADER = b"FAKE_GLB\n"
 FAKE_FBX_HEADER = b"FAKE_FBX\n"

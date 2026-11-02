@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from grounded_pipeline.domain.model_spec import (
+from tinyworld_pipeline.domain.model_spec import (
     GuidanceImages,
     ModelDocument,
     ModelFrontMatter,

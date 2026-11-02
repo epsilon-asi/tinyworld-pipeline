@@ -1,11 +1,11 @@
 [project]
-name = "grounded-pipeline"
+name = "tinyworld-pipeline"
 version = "0.1.0"
 description = "Upres + retexture rigged game assets through Blender and Tripo; Unity-ready output."
 requires-python = ">=3.12,<3.14"
 readme = "README.md"
 license = { text = "MIT" }
-authors = [{ name = "Epsilon ASI" }]
+authors = [{ name = "Epsilon Artificial Superintelligence Corp" }]
 dependencies = [
   "typer>=0.15,<1.0",            # CLI (bundles rich, click)
   "pydantic>=2.9,<3.0",          # data contracts
@@ -39,17 +39,17 @@ dev = [
 ]
 
 [project.scripts]
-gp = "grounded_pipeline.cli.app:main"
+gp = "tinyworld_pipeline.cli.app:main"
 
 [project.urls]
-Repository = "https://github.com/epsilon-asi/grounded-pipeline"
+Repository = "https://github.com/epsilon-asi/tinyworld-pipeline"
 
 [build-system]
 requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/grounded_pipeline"]
+packages = ["src/tinyworld_pipeline"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -64,10 +64,10 @@ markers = [
 
 [tool.coverage.run]
 branch = true
-source = ["grounded_pipeline"]
+source = ["tinyworld_pipeline"]
 omit = [
-  "src/grounded_pipeline/blender_jobs/bpy_scene.py",   # thin bpy adapter; covered by integration/blender
-  "src/grounded_pipeline/blender_jobs/entry.py",       # covered by integration/blender
+  "src/tinyworld_pipeline/blender_jobs/bpy_scene.py",   # thin bpy adapter; covered by integration/blender
+  "src/tinyworld_pipeline/blender_jobs/entry.py",       # covered by integration/blender
 ]
 
 [tool.coverage.report]
@@ -91,7 +91,7 @@ ignore = ["PLR0913","S101"]  # S101: asserts allowed in tests via per-file-ignor
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S101","S105","S106","ANN","PLR2004","ARG"]
 "tools/**" = ["T201"]
-"src/grounded_pipeline/blender_jobs/**" = ["TID252"]
+"src/tinyworld_pipeline/blender_jobs/**" = ["TID252"]
 [tool.ruff.lint.flake8-tidy-imports.banned-api]
 "print".msg = "Use observability.console or structlog."
 

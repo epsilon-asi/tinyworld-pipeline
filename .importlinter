@@ -1,5 +1,5 @@
 [importlinter]
-root_package = grounded_pipeline
+root_package = tinyworld_pipeline
 include_external_packages = True
 # Imports under `if TYPE_CHECKING:` are annotations only; they never create runtime coupling.
 exclude_type_checking_imports = True
@@ -9,20 +9,20 @@ exclude_type_checking_imports = True
 name = Layered architecture
 type = layers
 layers =
-    grounded_pipeline.cli
-    grounded_pipeline.pipeline
-    grounded_pipeline.library
-    grounded_pipeline.blender | grounded_pipeline.texturing | grounded_pipeline.gltf | grounded_pipeline.textures | grounded_pipeline.unity
-    grounded_pipeline.tripo
-    grounded_pipeline.config
-    grounded_pipeline.domain
+    tinyworld_pipeline.cli
+    tinyworld_pipeline.pipeline
+    tinyworld_pipeline.library
+    tinyworld_pipeline.blender | tinyworld_pipeline.texturing | tinyworld_pipeline.gltf | tinyworld_pipeline.textures | tinyworld_pipeline.unity
+    tinyworld_pipeline.tripo
+    tinyworld_pipeline.config
+    tinyworld_pipeline.domain
 
 # 03 §2 rule 1: domain is pure.
 [importlinter:contract:domain-pure]
 name = domain imports only stdlib + pydantic
 type = forbidden
 source_modules =
-    grounded_pipeline.domain
+    tinyworld_pipeline.domain
 forbidden_modules =
     httpx
     subprocess
@@ -36,51 +36,51 @@ forbidden_modules =
     pygltflib
     PIL
     numpy
-    grounded_pipeline.cli
-    grounded_pipeline.pipeline
-    grounded_pipeline.blender
-    grounded_pipeline.blender_jobs
-    grounded_pipeline.tripo
-    grounded_pipeline.texturing
-    grounded_pipeline.gltf
-    grounded_pipeline.textures
-    grounded_pipeline.unity
-    grounded_pipeline.library
-    grounded_pipeline.config
-    grounded_pipeline.observability
+    tinyworld_pipeline.cli
+    tinyworld_pipeline.pipeline
+    tinyworld_pipeline.blender
+    tinyworld_pipeline.blender_jobs
+    tinyworld_pipeline.tripo
+    tinyworld_pipeline.texturing
+    tinyworld_pipeline.gltf
+    tinyworld_pipeline.textures
+    tinyworld_pipeline.unity
+    tinyworld_pipeline.library
+    tinyworld_pipeline.config
+    tinyworld_pipeline.observability
 
 # 03 §2 rule 2: stages use ports, never effects directly.
 [importlinter:contract:stages-use-ports]
 name = pipeline stages never touch httpx / subprocess / bpy
 type = forbidden
 source_modules =
-    grounded_pipeline.pipeline.stages
+    tinyworld_pipeline.pipeline.stages
 forbidden_modules =
     httpx
     subprocess
     bpy
-    grounded_pipeline.tripo.client
-    grounded_pipeline.blender.runner
+    tinyworld_pipeline.tripo.client
+    tinyworld_pipeline.blender.runner
 
 # 03 §2 rule 3: Blender-side package is a separate runtime (stdlib + bpy + numpy only).
 [importlinter:contract:blender-jobs-independent]
-name = blender_jobs imports nothing else from grounded_pipeline and no third-party packages
+name = blender_jobs imports nothing else from tinyworld_pipeline and no third-party packages
 type = forbidden
 source_modules =
-    grounded_pipeline.blender_jobs
+    tinyworld_pipeline.blender_jobs
 forbidden_modules =
-    grounded_pipeline.cli
-    grounded_pipeline.pipeline
-    grounded_pipeline.blender
-    grounded_pipeline.tripo
-    grounded_pipeline.texturing
-    grounded_pipeline.gltf
-    grounded_pipeline.textures
-    grounded_pipeline.unity
-    grounded_pipeline.library
-    grounded_pipeline.config
-    grounded_pipeline.domain
-    grounded_pipeline.observability
+    tinyworld_pipeline.cli
+    tinyworld_pipeline.pipeline
+    tinyworld_pipeline.blender
+    tinyworld_pipeline.tripo
+    tinyworld_pipeline.texturing
+    tinyworld_pipeline.gltf
+    tinyworld_pipeline.textures
+    tinyworld_pipeline.unity
+    tinyworld_pipeline.library
+    tinyworld_pipeline.config
+    tinyworld_pipeline.domain
+    tinyworld_pipeline.observability
     pydantic
     pydantic_settings
     httpx
@@ -98,18 +98,18 @@ forbidden_modules =
 name = orchestrator never imports bpy
 type = forbidden
 source_modules =
-    grounded_pipeline.cli
-    grounded_pipeline.pipeline
-    grounded_pipeline.blender
-    grounded_pipeline.tripo
-    grounded_pipeline.texturing
-    grounded_pipeline.gltf
-    grounded_pipeline.textures
-    grounded_pipeline.unity
-    grounded_pipeline.library
-    grounded_pipeline.config
-    grounded_pipeline.domain
-    grounded_pipeline.observability
+    tinyworld_pipeline.cli
+    tinyworld_pipeline.pipeline
+    tinyworld_pipeline.blender
+    tinyworld_pipeline.tripo
+    tinyworld_pipeline.texturing
+    tinyworld_pipeline.gltf
+    tinyworld_pipeline.textures
+    tinyworld_pipeline.unity
+    tinyworld_pipeline.library
+    tinyworld_pipeline.config
+    tinyworld_pipeline.domain
+    tinyworld_pipeline.observability
 forbidden_modules =
     bpy
     bmesh

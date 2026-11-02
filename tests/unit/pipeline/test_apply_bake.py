@@ -17,12 +17,12 @@ from fakes.fake_blender_runner import (
     job_error_response,
 )
 from fakes.glb_builder import cube, write_glb
-from grounded_pipeline.blender.protocol import BakeTexturesParams
-from grounded_pipeline.domain.errors import BlenderJobError, ProtocolDriftError, StagePrereqError
-from grounded_pipeline.domain.textures import TextureFactors
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.stages.apply import APPLY_REPORT, URP_DIR, ApplyStage
-from grounded_pipeline.pipeline.stages.apply_bake import (
+from tinyworld_pipeline.blender.protocol import BakeTexturesParams
+from tinyworld_pipeline.domain.errors import BlenderJobError, ProtocolDriftError, StagePrereqError
+from tinyworld_pipeline.domain.textures import TextureFactors
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.stages.apply import APPLY_REPORT, URP_DIR, ApplyStage
+from tinyworld_pipeline.pipeline.stages.apply_bake import (
     EMISSIVE_MAP,
     MERGED_MAP,
     PREPARED_BLEND,
@@ -33,7 +33,7 @@ from grounded_pipeline.pipeline.stages.apply_bake import (
     run_bake_route,
     shape_raw_set,
 )
-from grounded_pipeline.pipeline.stages.verify import PREPARE_REPORT, RESULT_GLB, VERIFY_REPORT
+from tinyworld_pipeline.pipeline.stages.verify import PREPARE_REPORT, RESULT_GLB, VERIFY_REPORT
 
 BBOX_DIAGONAL = 1.7320508
 

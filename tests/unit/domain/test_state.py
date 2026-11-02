@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from pydantic import ValidationError
 
-from grounded_pipeline.domain.state import (
+from tinyworld_pipeline.domain.state import (
     STAGE_ORDER,
     ModelState,
     StageOutcome,

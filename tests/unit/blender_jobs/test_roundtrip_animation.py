@@ -17,12 +17,12 @@ from fakes.fake_scene import (
     scene_two_armatures,
     three_bone_chain,
 )
-from grounded_pipeline.blender import protocol as orch
-from grounded_pipeline.blender_jobs import protocol as bj
-from grounded_pipeline.blender_jobs.errors import JobFailure
-from grounded_pipeline.blender_jobs.fbx_settings import FBX_IMPORT_KWARGS, fbx_export_kwargs
-from grounded_pipeline.blender_jobs.jobs import JOBS, roundtrip_animation
-from grounded_pipeline.blender_jobs.jobs.roundtrip_animation import (
+from tinyworld_pipeline.blender import protocol as orch
+from tinyworld_pipeline.blender_jobs import protocol as bj
+from tinyworld_pipeline.blender_jobs.errors import JobFailure
+from tinyworld_pipeline.blender_jobs.fbx_settings import FBX_IMPORT_KWARGS, fbx_export_kwargs
+from tinyworld_pipeline.blender_jobs.jobs import JOBS, roundtrip_animation
+from tinyworld_pipeline.blender_jobs.jobs.roundtrip_animation import (
     compare_bone_names,
     parse_params,
     run_with_scene,
@@ -214,9 +214,9 @@ def test_run_builds_scene_lazily_and_returns_json(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     scene = clip_scene()
-    module = types.ModuleType("grounded_pipeline.blender_jobs.bpy_scene")
+    module = types.ModuleType("tinyworld_pipeline.blender_jobs.bpy_scene")
     module.BpyScene = lambda: scene  # type: ignore[attr-defined]
-    monkeypatch.setitem(sys.modules, "grounded_pipeline.blender_jobs.bpy_scene", module)
+    monkeypatch.setitem(sys.modules, "tinyworld_pipeline.blender_jobs.bpy_scene", module)
 
     data, warnings = roundtrip_animation.run(bj.to_dict(make_params(tmp_path)))
 

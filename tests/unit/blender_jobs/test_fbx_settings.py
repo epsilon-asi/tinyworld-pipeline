@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from grounded_pipeline.blender_jobs.fbx_settings import (
+from tinyworld_pipeline.blender_jobs.fbx_settings import (
     FBX_IMPORT_KWARGS,
     GLB_EXPORT_KWARGS,
     fbx_export_kwargs,

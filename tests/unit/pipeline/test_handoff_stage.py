@@ -12,32 +12,32 @@ import pytest
 import structlog
 
 from fakes.fake_blender_runner import sample_prepare_data, sample_rig
-from grounded_pipeline.blender.protocol import RigFingerprint
-from grounded_pipeline.domain.errors import HandoffError, StagePrereqError
-from grounded_pipeline.domain.library_config import LibraryConfig
-from grounded_pipeline.domain.manifest import Manifest, json_utility_violations
-from grounded_pipeline.domain.model_spec import (
+from tinyworld_pipeline.blender.protocol import RigFingerprint
+from tinyworld_pipeline.domain.errors import HandoffError, StagePrereqError
+from tinyworld_pipeline.domain.library_config import LibraryConfig
+from tinyworld_pipeline.domain.manifest import Manifest, json_utility_violations
+from tinyworld_pipeline.domain.model_spec import (
     ModelDocument,
     ModelFrontMatter,
     ResolvedModel,
     SourceSpec,
     UnityOverrides,
 )
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.domain.prompt import ComposedPrompt
-from grounded_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
-from grounded_pipeline.library.paths import ModelPaths
-from grounded_pipeline.pipeline import hashing
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.options import RunOptions
-from grounded_pipeline.pipeline.rig_fidelity import RfcTolerances, rig_fidelity_check
-from grounded_pipeline.pipeline.stages.export import (
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.domain.prompt import ComposedPrompt
+from tinyworld_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
+from tinyworld_pipeline.library.paths import ModelPaths
+from tinyworld_pipeline.pipeline import hashing
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.options import RunOptions
+from tinyworld_pipeline.pipeline.rig_fidelity import RfcTolerances, rig_fidelity_check
+from tinyworld_pipeline.pipeline.stages.export import (
     RIG_FIDELITY_REPORT,
     RIG_FINGERPRINT_OUT,
     ClipRecord,
     ExportReport,
 )
-from grounded_pipeline.pipeline.stages.handoff import (
+from tinyworld_pipeline.pipeline.stages.handoff import (
     HandoffStage,
     iso_utc,
     read_apply_material,
@@ -47,7 +47,7 @@ from grounded_pipeline.pipeline.stages.handoff import (
     read_uv_decision,
     utc_now,
 )
-from grounded_pipeline.unity.manifest_writer import UrpMaterialInputs
+from tinyworld_pipeline.unity.manifest_writer import UrpMaterialInputs
 
 ROOT = Path(__file__).resolve().parents[3]
 GOLDEN = ROOT / "tests" / "fixtures" / "manifest_golden.json"

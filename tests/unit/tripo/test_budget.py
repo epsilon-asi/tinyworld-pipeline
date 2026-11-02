@@ -4,9 +4,9 @@ import threading
 
 import pytest
 
-from grounded_pipeline.domain.errors import BudgetExceededError, ConfigError
-from grounded_pipeline.domain.library_config import TripoSection
-from grounded_pipeline.tripo.budget import CreditBudget, Reservation, estimate_credits
+from tinyworld_pipeline.domain.errors import BudgetExceededError, ConfigError
+from tinyworld_pipeline.domain.library_config import TripoSection
+from tinyworld_pipeline.tripo.budget import CreditBudget, Reservation, estimate_credits
 
 TABLE = TripoSection().credit_table
 

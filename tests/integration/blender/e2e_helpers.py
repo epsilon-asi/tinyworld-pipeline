@@ -22,25 +22,25 @@ from typer.testing import CliRunner, Result
 
 from fakes.fake_texture_provider import FakeTextureProvider
 from fakes.glb_builder import ImageSpec, MaterialSpec, from_mesh, textured_set
-from grounded_pipeline.blender.locate import BlenderInfo
-from grounded_pipeline.blender.protocol import JobRequest, JobResult
-from grounded_pipeline.blender.runner import BlenderRunner
-from grounded_pipeline.cli.app import build_app
-from grounded_pipeline.cli.state import CliHooks, CliState
-from grounded_pipeline.cli.wiring import (
+from tinyworld_pipeline.blender.locate import BlenderInfo
+from tinyworld_pipeline.blender.protocol import JobRequest, JobResult
+from tinyworld_pipeline.blender.runner import BlenderRunner
+from tinyworld_pipeline.cli.app import build_app
+from tinyworld_pipeline.cli.state import CliHooks, CliState
+from tinyworld_pipeline.cli.wiring import (
     build_production_context,
     make_tripo_client,
     resolve_blender,
     secrets_from_mapping,
 )
-from grounded_pipeline.config.layering import CliOverrides
-from grounded_pipeline.domain.library_config import BlenderSection
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.gltf.loader import load_glb
-from grounded_pipeline.observability.console import Console, RecordingConsole
-from grounded_pipeline.pipeline.context import PipelineContext
-from grounded_pipeline.pipeline.runner import ContextFactory, RunSetup
-from grounded_pipeline.texturing.provider import TextureRequest
+from tinyworld_pipeline.config.layering import CliOverrides
+from tinyworld_pipeline.domain.library_config import BlenderSection
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.gltf.loader import load_glb
+from tinyworld_pipeline.observability.console import Console, RecordingConsole
+from tinyworld_pipeline.pipeline.context import PipelineContext
+from tinyworld_pipeline.pipeline.runner import ContextFactory, RunSetup
+from tinyworld_pipeline.texturing.provider import TextureRequest
 
 ROOT = Path(__file__).resolve().parents[3]
 FIXTURE_LIBRARY = ROOT / "tests" / "fixtures" / "library_minimal"
@@ -178,6 +178,8 @@ class E2E:
     runner: CliRunner = field(default_factory=CliRunner)
     first: dict[str, Any] = field(default_factory=dict)
     first_jobs: list[str] = field(default_factory=list)
+    first_manifest: dict[str, Any] = field(default_factory=dict)
+    first_task_id: str = ""
 
     @classmethod
     def create(cls, lib: Path, blender_exe: Path, provider: FakeTextureProvider) -> E2E:

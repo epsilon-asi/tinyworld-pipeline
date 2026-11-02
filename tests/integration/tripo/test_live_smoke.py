@@ -13,10 +13,10 @@ from collections.abc import Iterator
 import pytest
 from pydantic import SecretStr
 
-from grounded_pipeline.domain.errors import TripoApiError
-from grounded_pipeline.domain.library_config import TRIPO_DEFAULT_BASE_URL
-from grounded_pipeline.tripo.client import TripoClient
-from grounded_pipeline.tripo.polling import RateLimiter
+from tinyworld_pipeline.domain.errors import TripoApiError
+from tinyworld_pipeline.domain.library_config import TRIPO_DEFAULT_BASE_URL
+from tinyworld_pipeline.tripo.client import TripoClient
+from tinyworld_pipeline.tripo.polling import RateLimiter
 
 pytestmark = pytest.mark.tripo_live
 

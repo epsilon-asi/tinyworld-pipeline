@@ -10,9 +10,9 @@ import pytest
 import respx
 
 from fakes.fake_blender_exe import write_launcher
-from grounded_pipeline.cli.commands import doctor as doctor_module
-from grounded_pipeline.cli.render import Check
-from grounded_pipeline.cli.wiring import resolve_blender
+from tinyworld_pipeline.cli.commands import doctor as doctor_module
+from tinyworld_pipeline.cli.render import Check
+from tinyworld_pipeline.cli.wiring import resolve_blender
 
 from .conftest import TEST_KEY, TRIPO_BASE, MakeHarness
 

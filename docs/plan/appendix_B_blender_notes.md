@@ -6,7 +6,7 @@ directly.
 ## 1. Headless invocation
 
 ```
-blender -b --factory-startup --python-exit-code 2 --python <src>/grounded_pipeline/blender_jobs/entry.py -- --job job.json --result result.json
+blender -b --factory-startup --python-exit-code 2 --python <src>/tinyworld_pipeline/blender_jobs/entry.py -- --job job.json --result result.json
 ```
 
 - `-b` background; `--factory-startup` ignores user prefs/add-ons (the FBX and glTF I/O add-ons are
@@ -15,7 +15,7 @@ blender -b --factory-startup --python-exit-code 2 --python <src>/grounded_pipeli
 - `--python-exit-code 2` makes Blender exit 2 when the script raises.
 - Arguments after `--` are in `sys.argv[sys.argv.index("--")+1:]`.
 - `entry.py` does `sys.path.insert(0, os.environ["GP_SRC_DIR"])` before importing
-  `grounded_pipeline.blender_jobs.*`; the package `__init__` must not import third-party modules.
+  `tinyworld_pipeline.blender_jobs.*`; the package `__init__` must not import third-party modules.
 - Reset the scene explicitly at job start: `bpy.ops.wm.read_factory_settings(use_empty=True)`.
 
 ## 2. Import / export operators

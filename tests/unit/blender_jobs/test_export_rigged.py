@@ -18,12 +18,12 @@ from fakes.fake_scene import (
     scene_unskinned_extra,
     scene_with_rigged_mesh,
 )
-from grounded_pipeline.blender import protocol as orch
-from grounded_pipeline.blender_jobs import protocol as bj
-from grounded_pipeline.blender_jobs.errors import JobFailure
-from grounded_pipeline.blender_jobs.fbx_settings import fbx_export_kwargs
-from grounded_pipeline.blender_jobs.jobs import JOBS, export_rigged
-from grounded_pipeline.blender_jobs.jobs.export_rigged import (
+from tinyworld_pipeline.blender import protocol as orch
+from tinyworld_pipeline.blender_jobs import protocol as bj
+from tinyworld_pipeline.blender_jobs.errors import JobFailure
+from tinyworld_pipeline.blender_jobs.fbx_settings import fbx_export_kwargs
+from tinyworld_pipeline.blender_jobs.jobs import JOBS, export_rigged
+from tinyworld_pipeline.blender_jobs.jobs.export_rigged import (
     URP_TEXTURE_KEYS,
     find_urp_textures,
     parse_params,
@@ -301,9 +301,9 @@ def test_run_builds_scene_lazily_and_returns_json(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     scene = scene_with_rigged_mesh()
-    module = types.ModuleType("grounded_pipeline.blender_jobs.bpy_scene")
+    module = types.ModuleType("tinyworld_pipeline.blender_jobs.bpy_scene")
     module.BpyScene = lambda: scene  # type: ignore[attr-defined]
-    monkeypatch.setitem(sys.modules, "grounded_pipeline.blender_jobs.bpy_scene", module)
+    monkeypatch.setitem(sys.modules, "tinyworld_pipeline.blender_jobs.bpy_scene", module)
     raw = bj.to_dict(make_params(tmp_path, textures=False))
 
     data, warnings = export_rigged.run(raw)

@@ -22,7 +22,7 @@ Wave-2 packages are independent of each other and can run fully in parallel.
 
 ## WP-00 — Repository bootstrap (S)
 **Depends:** none. **Reads:** 04, 19.
-**Scope:** `pyproject.toml` exactly as `04` §2; `uv.lock`; `src/grounded_pipeline/__init__.py` (version
+**Scope:** `pyproject.toml` exactly as `04` §2; `uv.lock`; `src/tinyworld_pipeline/__init__.py` (version
 only); package skeleton with empty `__init__.py` files for every module directory in `04` §1; `justfile`;
 `.pre-commit-config.yaml` (ruff, ruff-format, mypy, import-linter); `.importlinter` contracts encoding
 `03` §2; CI workflow (`04` §4) including Blender download step and `tools/check_function_coverage.py`;
@@ -185,7 +185,7 @@ into Unity; record results and credits; file issues; update `01` success criteri
 ## Agent briefing template
 
 ```
-You are implementing WP-XX of the grounded_pipeline project.
+You are implementing WP-XX of the tinyworld_pipeline project.
 Read: docs/plan/00,03,04,06,14,15,19 + <WP reads>. Your WP entry is in docs/plan/16 §WP-XX.
 Constraints: follow normative signatures exactly; do not modify other packages except where the WP says
 "coordinate"; do not change contracts without writing an ADR and flagging it in your PR.

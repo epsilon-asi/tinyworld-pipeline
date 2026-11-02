@@ -8,11 +8,11 @@ import pytest
 from hypothesis import given, settings
 from hypothesis import strategies as st
 
-from grounded_pipeline.domain.errors import PromptTooLongError, ValidationError
-from grounded_pipeline.domain.model_spec import ModelDocument, ModelFrontMatter, PromptSpec
-from grounded_pipeline.domain.prompt import PROMPT_MAX_CHARS, PROMPT_WARN_CHARS
-from grounded_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
-from grounded_pipeline.texturing.prompt_builder import (
+from tinyworld_pipeline.domain.errors import PromptTooLongError, ValidationError
+from tinyworld_pipeline.domain.model_spec import ModelDocument, ModelFrontMatter, PromptSpec
+from tinyworld_pipeline.domain.prompt import PROMPT_MAX_CHARS, PROMPT_WARN_CHARS
+from tinyworld_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
+from tinyworld_pipeline.texturing.prompt_builder import (
     compose_prompt,
     compose_with_warnings,
     normalize_whitespace,

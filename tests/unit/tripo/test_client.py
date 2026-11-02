@@ -10,7 +10,7 @@ import respx
 from pydantic import SecretStr
 from structlog.testing import capture_logs
 
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain.errors import (
     TripoAmbiguousCreateError,
     TripoApiError,
     TripoAuthError,
@@ -18,10 +18,10 @@ from grounded_pipeline.domain.errors import (
     TripoServerError,
     TripoTransientError,
 )
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.tripo.client import TripoClient
-from grounded_pipeline.tripo.models import TaskDetail, TexturePrompt, TextureTaskRequest
-from grounded_pipeline.tripo.polling import RateLimiter
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.tripo.client import TripoClient
+from tinyworld_pipeline.tripo.models import TaskDetail, TexturePrompt, TextureTaskRequest
+from tinyworld_pipeline.tripo.polling import RateLimiter
 
 from .conftest import (
     API_KEY,

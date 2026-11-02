@@ -4,8 +4,8 @@
 # intermediates, outputs and pipeline state. Only the synthetic test fixture
 # library under tests/fixtures/library_minimal is tracked.
 # ---------------------------------------------------------------------------
-library/
-libraries/
+/library/
+/libraries/
 /assets/
 *.blend1
 *.blend@
@@ -44,3 +44,12 @@ unity/TestProject/
 Thumbs.db
 .idea/
 .vscode/
+
+# Spike outputs: findings (md/json) are tracked, downloaded/generated assets and raw API recordings are not
+docs/spikes/**/recorded/
+docs/spikes/**/*.glb
+docs/spikes/**/*.blend
+docs/spikes/**/*.png
+docs/spikes/**/*.fbx
+docs/spikes/**/prepare/
+.import_linter_cache/

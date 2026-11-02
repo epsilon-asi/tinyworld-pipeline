@@ -10,8 +10,8 @@ from pathlib import Path
 import pytest
 
 from fakes.fake_blender_exe import write_launcher
-from grounded_pipeline.blender import locate
-from grounded_pipeline.blender.locate import (
+from tinyworld_pipeline.blender import locate
+from tinyworld_pipeline.blender.locate import (
     ENV_EXECUTABLE,
     BlenderInfo,
     blender_info,
@@ -20,8 +20,8 @@ from grounded_pipeline.blender.locate import (
     locate_blender,
     parse_blender_version,
 )
-from grounded_pipeline.domain.errors import BlenderNotFoundError, BlenderVersionError
-from grounded_pipeline.domain.library_config import BlenderSection
+from tinyworld_pipeline.domain.errors import BlenderNotFoundError, BlenderVersionError
+from tinyworld_pipeline.domain.library_config import BlenderSection
 
 MAC_APP = Path("/Applications/Blender.app/Contents/MacOS/Blender")
 

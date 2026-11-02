@@ -6,14 +6,14 @@ from collections.abc import Iterable
 import pytest
 from structlog.testing import capture_logs
 
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain.errors import (
     CancelledError,
     TripoTaskFailedError,
     TripoTaskTimeoutError,
 )
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.tripo.models import TaskDetail
-from grounded_pipeline.tripo.polling import RateLimiter, next_interval, wait_for_task
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.tripo.models import TaskDetail
+from tinyworld_pipeline.tripo.polling import RateLimiter, next_interval, wait_for_task
 
 from .conftest import FakeClock, FakeSleeper, load_fixture
 

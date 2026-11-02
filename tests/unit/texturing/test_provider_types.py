@@ -5,8 +5,8 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.texturing.provider import (
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.texturing.provider import (
     GuidanceMode,
     TextureProvider,
     TextureRequest,

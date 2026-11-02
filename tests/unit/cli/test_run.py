@@ -12,11 +12,11 @@ import pytest
 
 from fakes.fake_blender_runner import FakeBlenderRunner, job_error_response
 from fakes.fake_texture_provider import FakeTextureProvider
-from grounded_pipeline.cli.commands import run as run_module
-from grounded_pipeline.domain.state import StageStatus
-from grounded_pipeline.library.paths import LibraryPaths
-from grounded_pipeline.pipeline.locks import run_lock
-from grounded_pipeline.pipeline.state_store import JsonStateStore
+from tinyworld_pipeline.cli.commands import run as run_module
+from tinyworld_pipeline.domain.state import StageStatus
+from tinyworld_pipeline.library.paths import LibraryPaths
+from tinyworld_pipeline.pipeline.locks import run_lock
+from tinyworld_pipeline.pipeline.state_store import JsonStateStore
 
 from .conftest import Harness, MakeHarness
 
@@ -184,7 +184,7 @@ def test_run_keyboard_interrupt_while_polling_sets_cancel(
             raise KeyboardInterrupt
         return futures.wait(cast("list[Future[object]]", fs), timeout=timeout)
 
-    monkeypatch.setattr("grounded_pipeline.cli.commands.run.wait", interrupting_wait)
+    monkeypatch.setattr("tinyworld_pipeline.cli.commands.run.wait", interrupting_wait)
     result = harness.invoke("run", "--library", str(lib), "--to-stage", "prepare")
     assert result.exit_code in (0, 130)
     assert "cancelling" in harness.text

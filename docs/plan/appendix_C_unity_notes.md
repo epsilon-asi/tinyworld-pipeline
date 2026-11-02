@@ -90,11 +90,11 @@ becomes `""`; for an object becomes default-constructed. Hence the manifest uses
 
 ## 9. Manual verification script (for S2 and WP-12)
 
-1. New Unity 6 URP project; add package from disk (`unity/com.studio.grounded-pipeline`).
+1. New Unity 6 URP project; add package from disk (`unity/com.studio.tinyworld`).
 2. Copy `output/<id>` into `Assets/Art/Creatures/<id>`.
-3. Expect console: `[GroundedPipeline] <id>.fbx configured (Generic, avatar: copy|create, materials: 1)`.
+3. Expect console: `[TinyworldPipeline] <id>.fbx configured (Generic, avatar: copy|create, materials: 1)`.
 4. Inspector checks per §1/§3/§4; drag into scene; create an Animator Controller from the `@` clips;
    play; verify deformation, scale (1 unit = 1 m — compare with vendor import side by side), no missing
    bones warnings.
-5. `AnimationUtility.GetCurveBindings` dump (small Editor script in the package: `Tools/Grounded
+5. `AnimationUtility.GetCurveBindings` dump (small Editor script in the package: `Tools/Tinyworld
    Pipeline/Dump Clip Paths`) to compare with `rig_fingerprint` transform paths.

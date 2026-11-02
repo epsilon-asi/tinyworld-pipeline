@@ -27,7 +27,7 @@ from typing import Any
 import bpy
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from grounded_pipeline.blender_jobs.fbx_settings import (
+from tinyworld_pipeline.blender_jobs.fbx_settings import (
     FBX_IMPORT_KWARGS,
     GLB_EXPORT_KWARGS,
 )

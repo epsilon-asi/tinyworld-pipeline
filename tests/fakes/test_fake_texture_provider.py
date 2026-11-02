@@ -18,9 +18,9 @@ from fakes.fake_texture_provider import (
     scaled_cube_factory,
 )
 from fakes.glb_builder import cube, write_glb
-from grounded_pipeline.domain.errors import CancelledError, TripoTaskFailedError
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.texturing.provider import GuidanceMode, TextureProvider, TextureRequest
+from tinyworld_pipeline.domain.errors import CancelledError, TripoTaskFailedError
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.texturing.provider import GuidanceMode, TextureProvider, TextureRequest
 
 
 @pytest.fixture

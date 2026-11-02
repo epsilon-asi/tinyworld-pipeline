@@ -5,13 +5,13 @@ from pathlib import Path
 
 from rich.console import Console as RichConsole
 
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain.errors import (
     BlenderJobError,
     PipelineError,
     Problem,
     TripoAuthError,
 )
-from grounded_pipeline.observability.console import Console, RecordingConsole
+from tinyworld_pipeline.observability.console import Console, RecordingConsole
 
 PROBLEMS = [
     Problem(

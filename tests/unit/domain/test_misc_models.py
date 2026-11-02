@@ -3,11 +3,11 @@ from __future__ import annotations
 import threading
 from pathlib import Path
 
-from grounded_pipeline.domain.fingerprint import SurfaceFingerprint, VerifyReport
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.domain.prompt import PROMPT_MAX_CHARS, PROMPT_WARN_CHARS, ComposedPrompt
-from grounded_pipeline.domain.reports import ModelRunSummary, RunEnvironment, RunReport
-from grounded_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
+from tinyworld_pipeline.domain.fingerprint import SurfaceFingerprint, VerifyReport
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.domain.prompt import PROMPT_MAX_CHARS, PROMPT_WARN_CHARS, ComposedPrompt
+from tinyworld_pipeline.domain.reports import ModelRunSummary, RunEnvironment, RunReport
+from tinyworld_pipeline.domain.style_spec import StyleDocument, StyleFrontMatter
 
 
 def _fp(**overrides: object) -> SurfaceFingerprint:

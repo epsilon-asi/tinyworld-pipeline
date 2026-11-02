@@ -12,7 +12,7 @@ the `bpy` wheel inside the project venv, or a headless Blender subprocess.
 
 The orchestrator runs on its own Python 3.12 venv. All Blender work runs in a fresh
 `blender -b --factory-startup --python entry.py -- --job job.json --result result.json` process. The
-Blender-side package `grounded_pipeline.blender_jobs` imports only the standard library, `bpy`,
+Blender-side package `tinyworld_pipeline.blender_jobs` imports only the standard library, `bpy`,
 `bmesh`, `mathutils` and Blender's bundled `numpy`. Requests and results are JSON documents; the
 orchestrator validates them with pydantic, the Blender side mirrors them with frozen dataclasses. A
 parity test keeps both sides' field names identical.

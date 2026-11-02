@@ -16,11 +16,11 @@ from fakes.fake_scene import (
     scene_for_bake,
     source_object,
 )
-from grounded_pipeline.blender import protocol as orch
-from grounded_pipeline.blender_jobs import protocol as bj
-from grounded_pipeline.blender_jobs.errors import JobFailure
-from grounded_pipeline.blender_jobs.jobs import JOBS, bake_textures
-from grounded_pipeline.blender_jobs.jobs.bake_textures import (
+from tinyworld_pipeline.blender import protocol as orch
+from tinyworld_pipeline.blender_jobs import protocol as bj
+from tinyworld_pipeline.blender_jobs.errors import JobFailure
+from tinyworld_pipeline.blender_jobs.jobs import JOBS, bake_textures
+from tinyworld_pipeline.blender_jobs.jobs.bake_textures import (
     ALIGN_TOLERANCE,
     CYCLES_DEVICE_ENV,
     GLB_IMPORT_KWARGS,
@@ -31,7 +31,7 @@ from grounded_pipeline.blender_jobs.jobs.bake_textures import (
     run_with_scene,
     source_presence,
 )
-from grounded_pipeline.blender_jobs.scene_api import ShaderInput
+from tinyworld_pipeline.blender_jobs.scene_api import ShaderInput
 
 ALL_MAPS = ["basecolor", "normal", "metallic", "roughness", "occlusion", "emission"]
 
@@ -421,9 +421,9 @@ def test_run_builds_scene_lazily_and_returns_json(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     scene = scene_for_bake(source=full_source())
-    module = types.ModuleType("grounded_pipeline.blender_jobs.bpy_scene")
+    module = types.ModuleType("tinyworld_pipeline.blender_jobs.bpy_scene")
     module.BpyScene = lambda: scene  # type: ignore[attr-defined]
-    monkeypatch.setitem(sys.modules, "grounded_pipeline.blender_jobs.bpy_scene", module)
+    monkeypatch.setitem(sys.modules, "tinyworld_pipeline.blender_jobs.bpy_scene", module)
     monkeypatch.delenv(CYCLES_DEVICE_ENV, raising=False)
     raw = orch.BakeTexturesParams.model_validate(
         bj.to_dict(make_params(tmp_path, maps=["basecolor", "normal"]))

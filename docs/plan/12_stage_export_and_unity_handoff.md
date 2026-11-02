@@ -128,7 +128,7 @@ ant_worker/
     └── ant_worker@walk.fbx
 ```
 
-## 4. Unity consumer — package `com.studio.grounded-pipeline` (Editor-only)
+## 4. Unity consumer — package `com.studio.tinyworld` (Editor-only)
 
 ### 4.1 Files
 
@@ -138,8 +138,8 @@ ant_worker/
 | `ManifestLocator.cs` | For an asset path, find `manifest.json` in the same folder (or parent for `animations/`, `textures/`) whose `fbx`/`textures[].file`/`animations[].file` references that asset. Caches per import session. |
 | `TextureImportRules.cs` | Given a `ManifestTexture`, configure `TextureImporter`: `kind=="normal"` → `TextureImporterType.NormalMap`; `sRGBTexture = srgb`; `mipmapEnabled = true`; `alphaIsTransparency=false`; `textureCompression = Compressed`; for `_MetallicGlossMap` keep alpha (`alphaSource = FromInput`). |
 | `UrpMaterialBuilder.cs` | Create/update `Material` with `Shader.Find(manifest.materials[i].shader)`; set textures by slot; set floats/colors; enable keywords; set `_Smoothness=1`, `_SmoothnessTextureChannel=0` when metallic map present; emission: `EnableKeyword("_EMISSION")`, `globalIlluminationFlags = RealtimeEmissive`. Saves to `Materials/<name>.mat` beside the FBX (create or overwrite in place to keep GUID). |
-| `GroundedPipelinePostprocessor.cs` | `AssetPostprocessor` (see 4.2). `GetPostprocessOrder() => 100`. |
-| `PipelineMenu.cs` | `Tools/Grounded Pipeline/Reimport All Pipeline Models`, `…/Validate Manifests`, `…/Open Log`. |
+| `TinyworldPipelinePostprocessor.cs` | `AssetPostprocessor` (see 4.2). `GetPostprocessOrder() => 100`. |
+| `PipelineMenu.cs` | `Tools/Tinyworld Pipeline/Reimport All Pipeline Models`, `…/Validate Manifests`, `…/Open Log`. |
 
 ### 4.2 Postprocessor behaviour
 
@@ -178,19 +178,19 @@ OnPostprocessAllAssets(...):
   if any manifest.json imported/changed → AssetDatabase.ImportAsset(fbx referenced, ForceUpdate)  // manifest edits propagate
 ```
 
-Error handling: all exceptions caught per asset and surfaced via `Debug.LogError($"[GroundedPipeline]
+Error handling: all exceptions caught per asset and surfaced via `Debug.LogError($"[TinyworldPipeline]
 {assetPath}: {message}")` — a bad manifest must never break unrelated imports.
 
 ### 4.3 `package.json`
 
 ```json
-{ "name": "com.studio.grounded-pipeline", "version": "0.1.0", "displayName": "Grounded Pipeline Importer",
+{ "name": "com.studio.tinyworld", "version": "0.1.0", "displayName": "Tinyworld Pipeline Importer",
   "unity": "6000.0", "dependencies": { "com.unity.render-pipelines.universal": "17.0.0" } }
 ```
 
 ### 4.4 Verification checklist (manual until the EditMode tests exist)
 
-1. Drop `output/<id>` into `Assets/Art/Creatures/`. Confirm console shows no `[GroundedPipeline]` errors.
+1. Drop `output/<id>` into `Assets/Art/Creatures/`. Confirm console shows no `[TinyworldPipeline]` errors.
 2. Select FBX → Rig tab shows Generic + Avatar copied (or created).
 3. Materials folder contains `<id>_mat.mat` with URP/Lit, all maps assigned, normal map flagged.
 4. Drag model into a scene; Animator with the vendor controller (or a quick controller from the

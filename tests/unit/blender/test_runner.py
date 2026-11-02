@@ -14,14 +14,14 @@ from typing import Any
 import pytest
 
 from fakes.fake_blender_exe import write_launcher
-from grounded_pipeline.blender.protocol import PROTOCOL_VERSION, JobRequest, JobResult
-from grounded_pipeline.blender.runner import (
+from tinyworld_pipeline.blender.protocol import PROTOCOL_VERSION, JobRequest, JobResult
+from tinyworld_pipeline.blender.runner import (
     BlenderRunner,
     SubprocessBlenderRunner,
     default_entry_script,
     default_src_dir,
 )
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain.errors import (
     BlenderCrashError,
     BlenderJobError,
     BlenderNoResultError,
@@ -30,7 +30,7 @@ from grounded_pipeline.domain.errors import (
     CancelledError,
     ProtocolDriftError,
 )
-from grounded_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.domain.ports import CancelToken
 
 FAKE_ENTRY = Path("/fake/entry.py")
 
@@ -124,7 +124,7 @@ def test_command_shape_and_defaults(make_runner: RunnerFactory, fake_blender: Pa
     ]
     assert runner.child_env()["GP_SRC_DIR"] == str(default_src_dir())
     assert runner.child_env()["PYTHONDONTWRITEBYTECODE"] == "1"
-    assert (default_src_dir() / "grounded_pipeline" / "__init__.py").is_file()
+    assert (default_src_dir() / "tinyworld_pipeline" / "__init__.py").is_file()
     assert default_entry_script().is_file()
     assert default_entry_script().name == "entry.py"
 

@@ -7,10 +7,10 @@ import numpy as np
 import pytest
 
 from fakes.glb_builder import cube, cube_mesh, from_mesh, quad, write_glb
-from grounded_pipeline.domain.errors import GeometryChangedError, VerifySelfMismatchError
-from grounded_pipeline.domain.fingerprint import SurfaceFingerprint, VerifyReport
-from grounded_pipeline.domain.library_config import VerifySection
-from grounded_pipeline.gltf.verify import decide_route, verify_surfaces
+from tinyworld_pipeline.domain.errors import GeometryChangedError, VerifySelfMismatchError
+from tinyworld_pipeline.domain.fingerprint import SurfaceFingerprint, VerifyReport
+from tinyworld_pipeline.domain.library_config import VerifySection
+from tinyworld_pipeline.gltf.verify import decide_route, verify_surfaces
 
 SHA_A = "a" * 64
 SHA_B = "b" * 64

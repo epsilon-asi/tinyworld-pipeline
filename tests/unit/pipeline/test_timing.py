@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 
-from grounded_pipeline.pipeline.timing import (
+from tinyworld_pipeline.pipeline.timing import (
     Stopwatch,
     SystemClock,
     SystemSleeper,

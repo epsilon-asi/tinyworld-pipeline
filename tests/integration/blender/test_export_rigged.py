@@ -22,7 +22,7 @@ import pytest
 from PIL import Image
 from ulid import ULID
 
-from grounded_pipeline.blender.protocol import (
+from tinyworld_pipeline.blender.protocol import (
     ExportRiggedData,
     ExportRiggedParams,
     JobName,
@@ -32,11 +32,11 @@ from grounded_pipeline.blender.protocol import (
     RoundtripAnimationData,
     RoundtripAnimationParams,
 )
-from grounded_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
-from grounded_pipeline.domain.library_config import ExportSection, GeometrySection, UvSection
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.pipeline.hashing import file_sha
-from grounded_pipeline.pipeline.rig_fidelity import RfcTolerances, rig_fidelity_check
+from tinyworld_pipeline.blender.runner import SubprocessBlenderRunner, default_entry_script
+from tinyworld_pipeline.domain.library_config import ExportSection, GeometrySection, UvSection
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.pipeline.hashing import file_sha
+from tinyworld_pipeline.pipeline.rig_fidelity import RfcTolerances, rig_fidelity_check
 
 pytestmark = pytest.mark.blender
 

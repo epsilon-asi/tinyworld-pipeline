@@ -1,1 +1,0 @@
-"""grounded_pipeline.texturing."""

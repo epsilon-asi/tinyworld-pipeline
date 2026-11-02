@@ -8,9 +8,9 @@ import httpx
 import pytest
 import respx
 
-from grounded_pipeline.domain.errors import TripoError
-from grounded_pipeline.tripo.models import FileUploadData, PresignData
-from grounded_pipeline.tripo.upload import (
+from tinyworld_pipeline.domain.errors import TripoError
+from tinyworld_pipeline.tripo.models import FileUploadData, PresignData
+from tinyworld_pipeline.tripo.upload import (
     MIB,
     MultipartFile,
     content_type_for,

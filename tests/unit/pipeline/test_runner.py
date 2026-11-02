@@ -10,8 +10,8 @@ from typing import Any
 
 import pytest
 
-from grounded_pipeline.config.layering import CliOverrides
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.config.layering import CliOverrides
+from tinyworld_pipeline.domain.errors import (
     BudgetExceededError,
     CancelledError,
     LibraryBusyError,
@@ -20,21 +20,21 @@ from grounded_pipeline.domain.errors import (
     UsageError,
     ValidationError,
 )
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.domain.reports import RunReport
-from grounded_pipeline.domain.state import STAGE_ORDER, StageName, StageOutcome, StageStatus
-from grounded_pipeline.library.discovery import Library
-from grounded_pipeline.library.resolve import discover_fingerprint
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.graph import StageGraph
-from grounded_pipeline.pipeline.locks import run_lock
-from grounded_pipeline.pipeline.model_runner import E_UNEXPECTED
-from grounded_pipeline.pipeline.options import RunOptions
-from grounded_pipeline.pipeline.planner import PlannedStage
-from grounded_pipeline.pipeline.report import plan_rows
-from grounded_pipeline.pipeline.runner import PipelineRunner, RunSetup, context_from_template
-from grounded_pipeline.pipeline.stages.discover import DiscoverStage
-from grounded_pipeline.pipeline.state_store import InMemoryStateStore, JsonStateStore, StateStore
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.domain.reports import RunReport
+from tinyworld_pipeline.domain.state import STAGE_ORDER, StageName, StageOutcome, StageStatus
+from tinyworld_pipeline.library.discovery import Library
+from tinyworld_pipeline.library.resolve import discover_fingerprint
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.graph import StageGraph
+from tinyworld_pipeline.pipeline.locks import run_lock
+from tinyworld_pipeline.pipeline.model_runner import E_UNEXPECTED
+from tinyworld_pipeline.pipeline.options import RunOptions
+from tinyworld_pipeline.pipeline.planner import PlannedStage
+from tinyworld_pipeline.pipeline.report import plan_rows
+from tinyworld_pipeline.pipeline.runner import PipelineRunner, RunSetup, context_from_template
+from tinyworld_pipeline.pipeline.stages.discover import DiscoverStage
+from tinyworld_pipeline.pipeline.state_store import InMemoryStateStore, JsonStateStore, StateStore
 
 from .conftest import (
     MODEL_IDS,

@@ -5,14 +5,14 @@ from datetime import UTC, datetime
 import httpx
 import pytest
 
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline.domain.errors import (
     TripoApiError,
     TripoAuthError,
     TripoRateLimitedError,
     TripoServerError,
     TripoTransientError,
 )
-from grounded_pipeline.tripo.errors import (
+from tinyworld_pipeline.tripo.errors import (
     map_http_error,
     mask_secret,
     parse_retry_after,
@@ -20,7 +20,7 @@ from grounded_pipeline.tripo.errors import (
     redact,
     wrap_transport_error,
 )
-from grounded_pipeline.tripo.models import ApiEnvelope
+from tinyworld_pipeline.tripo.models import ApiEnvelope
 
 from .conftest import API_KEY, load_fixture
 

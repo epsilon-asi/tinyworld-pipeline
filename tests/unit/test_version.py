@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import re
 
-import grounded_pipeline
+import tinyworld_pipeline
 
 
 def test_version_is_semver() -> None:
-    assert re.fullmatch(r"\d+\.\d+\.\d+", grounded_pipeline.__version__)
+    assert re.fullmatch(r"\d+\.\d+\.\d+", tinyworld_pipeline.__version__)

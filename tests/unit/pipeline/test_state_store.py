@@ -7,10 +7,10 @@ from pathlib import Path
 import pytest
 from filelock import FileLock
 
-from grounded_pipeline.domain.errors import LibraryBusyError
-from grounded_pipeline.domain.state import STAGE_ORDER, ModelState, StageRecord, StageStatus
-from grounded_pipeline.library.paths import LibraryPaths
-from grounded_pipeline.pipeline.state_store import (
+from tinyworld_pipeline.domain.errors import LibraryBusyError
+from tinyworld_pipeline.domain.state import STAGE_ORDER, ModelState, StageRecord, StageStatus
+from tinyworld_pipeline.library.paths import LibraryPaths
+from tinyworld_pipeline.pipeline.state_store import (
     InMemoryStateStore,
     JsonStateStore,
     StateStore,
@@ -156,11 +156,11 @@ def test_lock_contention_two_threads(json_store: JsonStateStore) -> None:
     rounds = 25
 
     def worker() -> None:
-        for _ in range(rounds):
-            state = json_store.update(MODEL, "texture", extra={})
-            json_store.update(
-                MODEL, "texture", attempts=state.stages["texture"].attempts
-            )  # no-op write
+        # Concurrent writes to OTHER fields must never clobber the incrementers' `attempts`
+        # (writing back a previously read `attempts` would be a lost-update race in the test).
+        for i in range(rounds):
+            json_store.update(MODEL, "texture", extra={"worker": i})
+            json_store.update(MODEL, "texture", error_message=f"round {i}")
 
     def incrementer() -> None:
         for _ in range(rounds):
@@ -234,7 +234,7 @@ def test_backup_name_never_collides(
     json_store: JsonStateStore, paths: LibraryPaths, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     monkeypatch.setattr(
-        "grounded_pipeline.pipeline.state_store.compact_utc_timestamp", lambda: "FIXED"
+        "tinyworld_pipeline.pipeline.state_store.compact_utc_timestamp", lambda: "FIXED"
     )
     file = paths.model(MODEL).state_file
     file.parent.mkdir(parents=True)

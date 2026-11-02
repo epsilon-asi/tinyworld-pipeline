@@ -5,9 +5,9 @@ from typing import cast
 
 import pytest
 
-from grounded_pipeline.domain.errors import UsageError
-from grounded_pipeline.domain.state import STAGE_ORDER, StageName
-from grounded_pipeline.pipeline.graph import StageGraph
+from tinyworld_pipeline.domain.errors import UsageError
+from tinyworld_pipeline.domain.state import STAGE_ORDER, StageName
+from tinyworld_pipeline.pipeline.graph import StageGraph
 
 from .conftest import FakeStage, fake_graph
 

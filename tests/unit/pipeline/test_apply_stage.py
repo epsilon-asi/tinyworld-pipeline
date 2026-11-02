@@ -7,10 +7,10 @@ import pytest
 from PIL import Image
 
 from fakes.glb_builder import MaterialSpec, cube, textured_set, write_glb
-from grounded_pipeline.domain.errors import StagePrereqError
-from grounded_pipeline.domain.textures import RawTextureSet, TextureFactors
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.stages.apply import (
+from tinyworld_pipeline.domain.errors import StagePrereqError
+from tinyworld_pipeline.domain.textures import RawTextureSet, TextureFactors
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.stages.apply import (
     APPLY_REPORT,
     PREPARED_BLEND,
     RAW_DIR,
@@ -19,8 +19,8 @@ from grounded_pipeline.pipeline.stages.apply import (
     bake_route_not_implemented,
     read_route,
 )
-from grounded_pipeline.pipeline.stages.apply_bake import run_bake_route
-from grounded_pipeline.pipeline.stages.verify import RESULT_GLB, VERIFY_REPORT
+from tinyworld_pipeline.pipeline.stages.apply_bake import run_bake_route
+from tinyworld_pipeline.pipeline.stages.verify import RESULT_GLB, VERIFY_REPORT
 
 
 def _set_route(folder: Path, route: str) -> None:

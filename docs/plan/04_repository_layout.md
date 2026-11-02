@@ -3,7 +3,7 @@
 ## 1. Repository tree (normative)
 
 ```
-grounded-pipeline/
+tinyworld-pipeline/
 ├── pyproject.toml
 ├── uv.lock
 ├── README.md
@@ -17,7 +17,7 @@ grounded-pipeline/
 │   ├── adr/0001-two-runtimes.md …     # ADRs
 │   ├── runbook.md                     # day-to-day operation
 │   └── troubleshooting.md
-├── src/grounded_pipeline/
+├── src/tinyworld_pipeline/
 │   ├── __init__.py                    # __version__ ONLY. No imports.
 │   ├── py.typed
 │   ├── cli/
@@ -73,11 +73,11 @@ grounded-pipeline/
 │   └── observability/
 │       ├── logging.py  console.py  events.py
 ├── unity/                              # Unity package (UPM, local path)
-│   └── com.studio.grounded-pipeline/
+│   └── com.studio.tinyworld/
 │       ├── package.json
 │       ├── Editor/
-│       │   ├── GroundedPipeline.Editor.asmdef
-│       │   ├── GroundedPipelinePostprocessor.cs
+│       │   ├── TinyworldPipeline.Editor.asmdef
+│       │   ├── TinyworldPipelinePostprocessor.cs
 │       │   ├── PipelineManifest.cs
 │       │   ├── ManifestLocator.cs
 │       │   ├── UrpMaterialBuilder.cs
@@ -110,7 +110,7 @@ grounded-pipeline/
 
 ```toml
 [project]
-name = "grounded-pipeline"
+name = "tinyworld-pipeline"
 version = "0.1.0"
 description = "Upres + retexture rigged game assets through Blender and Tripo; Unity-ready output."
 requires-python = ">=3.12,<3.14"
@@ -149,14 +149,14 @@ dev = [
 ]
 
 [project.scripts]
-gp = "grounded_pipeline.cli.app:main"
+gp = "tinyworld_pipeline.cli.app:main"
 
 [build-system]
 requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/grounded_pipeline"]
+packages = ["src/tinyworld_pipeline"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -171,10 +171,10 @@ markers = [
 
 [tool.coverage.run]
 branch = true
-source = ["grounded_pipeline"]
+source = ["tinyworld_pipeline"]
 omit = [
-  "src/grounded_pipeline/blender_jobs/bpy_scene.py",   # thin bpy adapter; covered by integration/blender
-  "src/grounded_pipeline/blender_jobs/entry.py",       # covered by integration/blender
+  "src/tinyworld_pipeline/blender_jobs/bpy_scene.py",   # thin bpy adapter; covered by integration/blender
+  "src/tinyworld_pipeline/blender_jobs/entry.py",       # covered by integration/blender
 ]
 
 [tool.coverage.report]
@@ -193,7 +193,7 @@ select = ["E","F","W","I","N","UP","B","A","C4","SIM","PL","PT","RET","ARG","PTH
 ignore = ["PLR0913","S101"]  # S101: asserts allowed in tests via per-file-ignores (ANN101/102 no longer exist)
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S101","ANN","PLR2004","ARG"]
-"src/grounded_pipeline/blender_jobs/**" = ["TID252"]
+"src/tinyworld_pipeline/blender_jobs/**" = ["TID252"]
 [tool.ruff.lint.flake8-tidy-imports.banned-api]
 "print".msg = "Use observability.console or structlog."
 
@@ -226,7 +226,7 @@ Rationale for notable choices:
 | `just setup` | `uv sync --all-extras && pre-commit install` |
 | `just lint` | `ruff check . && ruff format --check . && lint-imports` |
 | `just type` | `mypy src tests` |
-| `just test` | `pytest -n auto -m "not blender and not tripo_live" --cov=grounded_pipeline --cov-branch --cov-report=term-missing --cov-report=json --cov-fail-under=80 && python tools/check_function_coverage.py` |
+| `just test` | `pytest -n auto -m "not blender and not tripo_live" --cov=tinyworld_pipeline --cov-branch --cov-report=term-missing --cov-report=json --cov-fail-under=80 && python tools/check_function_coverage.py` |
 | `just test-blender` | `pytest -m blender` (requires `GP_BLENDER_EXE`) |
 | `just fixtures` | `"$GP_BLENDER_EXE" -b --python tools/make_fixtures.py -- tests/fixtures/fbx` |
 | `just ci` | lint + type + test |

@@ -21,7 +21,7 @@ from typing import Any
 
 from PIL import Image as PilImage
 
-from grounded_pipeline.blender.protocol import (
+from tinyworld_pipeline.blender.protocol import (
     BakeTexturesData,
     BakeTexturesParams,
     Bone,
@@ -38,8 +38,8 @@ from grounded_pipeline.blender.protocol import (
     RoundtripAnimationParams,
     UvStats,
 )
-from grounded_pipeline.domain.errors import BlenderJobError, CancelledError
-from grounded_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.domain.errors import BlenderJobError, CancelledError
+from tinyworld_pipeline.domain.ports import CancelToken
 
 Response = Callable[[JobRequest], JobResult | Exception]
 DEFAULT_STATIC_GLB = b"FAKE_GLB\nCube"

@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from grounded_pipeline.config.defaults import DEFAULTS, SECTION_NAMES
-from grounded_pipeline.config.layering import (
+from tinyworld_pipeline.config.defaults import DEFAULTS, SECTION_NAMES
+from tinyworld_pipeline.config.layering import (
     CliOverrides,
     env_layer,
     load_library_toml,
@@ -14,9 +14,9 @@ from grounded_pipeline.config.layering import (
     resolve_config,
     toml_layer,
 )
-from grounded_pipeline.domain.errors import ConfigError
-from grounded_pipeline.domain.library_config import LibraryConfig
-from grounded_pipeline.domain.model_spec import ModelFrontMatter
+from tinyworld_pipeline.domain.errors import ConfigError
+from tinyworld_pipeline.domain.library_config import LibraryConfig
+from tinyworld_pipeline.domain.model_spec import ModelFrontMatter
 
 NO_ENV: dict[str, str] = {}
 NO_CLI = CliOverrides()

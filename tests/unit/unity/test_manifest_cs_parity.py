@@ -10,8 +10,8 @@ from typing import Any, get_args, get_origin
 import pytest
 from pydantic import BaseModel
 
-from grounded_pipeline.domain import manifest as manifest_module
-from grounded_pipeline.domain.manifest import (
+from tinyworld_pipeline.domain import manifest as manifest_module
+from tinyworld_pipeline.domain.manifest import (
     Manifest,
     ManifestAnimation,
     ManifestColor,
@@ -23,7 +23,7 @@ from grounded_pipeline.domain.manifest import (
 )
 
 ROOT = Path(__file__).resolve().parents[3]
-CS_FILE = ROOT / "unity" / "com.studio.grounded-pipeline" / "Editor" / "PipelineManifest.cs"
+CS_FILE = ROOT / "unity" / "com.studio.tinyworld" / "Editor" / "PipelineManifest.cs"
 
 PY_TO_CS: dict[str, type[BaseModel]] = {
     "PipelineManifest": Manifest,

@@ -9,38 +9,38 @@ from typing import cast
 import pytest
 from rich.console import Console as RichConsole
 
-from grounded_pipeline import __version__
-from grounded_pipeline.blender.protocol import JobRequest
-from grounded_pipeline.blender.runner import SubprocessBlenderRunner
-from grounded_pipeline.cli import render, wiring
-from grounded_pipeline.cli.state import CliHooks, CliState
-from grounded_pipeline.config.layering import CliOverrides
-from grounded_pipeline.domain.errors import (
+from tinyworld_pipeline import __version__
+from tinyworld_pipeline.blender.protocol import JobRequest
+from tinyworld_pipeline.blender.runner import SubprocessBlenderRunner
+from tinyworld_pipeline.cli import render, wiring
+from tinyworld_pipeline.cli.state import CliHooks, CliState
+from tinyworld_pipeline.config.layering import CliOverrides
+from tinyworld_pipeline.domain.errors import (
     BlenderNotFoundError,
     PipelineError,
     Problem,
     TripoAuthError,
 )
-from grounded_pipeline.domain.library_config import BlenderSection
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.domain.state import (
+from tinyworld_pipeline.domain.library_config import BlenderSection
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.domain.state import (
     STAGE_ORDER,
     ModelState,
     StageName,
     StageRecord,
     StageStatus,
 )
-from grounded_pipeline.library.discovery import Library
-from grounded_pipeline.library.paths import LibraryPaths
-from grounded_pipeline.library.resolve import resolve_model
-from grounded_pipeline.observability.console import Console
-from grounded_pipeline.observability.logging import configure_logging
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
-from grounded_pipeline.pipeline.options import RunOptions
-from grounded_pipeline.pipeline.runner import RunSetup
-from grounded_pipeline.texturing.provider import TextureRequest
-from grounded_pipeline.texturing.tripo_provider import TripoTextureProvider
-from grounded_pipeline.tripo.budget import CreditBudget
+from tinyworld_pipeline.library.discovery import Library
+from tinyworld_pipeline.library.paths import LibraryPaths
+from tinyworld_pipeline.library.resolve import resolve_model
+from tinyworld_pipeline.observability.console import Console
+from tinyworld_pipeline.observability.logging import configure_logging
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.pipeline.options import RunOptions
+from tinyworld_pipeline.pipeline.runner import RunSetup
+from tinyworld_pipeline.texturing.provider import TextureRequest
+from tinyworld_pipeline.texturing.tripo_provider import TripoTextureProvider
+from tinyworld_pipeline.tripo.budget import CreditBudget
 
 from .conftest import FAKE_BLENDER, TEST_KEY, mocked_client_factory, stub_resolver
 

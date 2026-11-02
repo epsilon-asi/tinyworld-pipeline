@@ -17,10 +17,10 @@ from fakes.glb_builder import (
     textured_set,
     write_glb,
 )
-from grounded_pipeline.domain.errors import MultiMaterialResultError, UnsupportedGlbError
-from grounded_pipeline.domain.textures import RawTextureSet, TextureFactors
-from grounded_pipeline.gltf.extract import extract_textures
-from grounded_pipeline.gltf.loader import (
+from tinyworld_pipeline.domain.errors import MultiMaterialResultError, UnsupportedGlbError
+from tinyworld_pipeline.domain.textures import RawTextureSet, TextureFactors
+from tinyworld_pipeline.gltf.extract import extract_textures
+from tinyworld_pipeline.gltf.loader import (
     GlbDocument,
     GlbImage,
     GlbMaterial,

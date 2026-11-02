@@ -29,9 +29,9 @@ from fakes.glb_builder import (
     textured_set,
     write_glb,
 )
-from grounded_pipeline.domain.errors import CancelledError
-from grounded_pipeline.domain.ports import CancelToken
-from grounded_pipeline.texturing.provider import OnTaskCreated, TextureRequest, TextureResult
+from tinyworld_pipeline.domain.errors import CancelledError
+from tinyworld_pipeline.domain.ports import CancelToken
+from tinyworld_pipeline.texturing.provider import OnTaskCreated, TextureRequest, TextureResult
 
 GlbFactory = Callable[[TextureRequest], bytes]
 

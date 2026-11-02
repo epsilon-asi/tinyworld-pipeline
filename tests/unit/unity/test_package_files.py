@@ -9,14 +9,14 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[3]
-PACKAGE = ROOT / "unity" / "com.studio.grounded-pipeline"
+PACKAGE = ROOT / "unity" / "com.studio.tinyworld"
 EDITOR = PACKAGE / "Editor"
 TESTS = PACKAGE / "Tests" / "Editor"
 GOLDEN = ROOT / "tests" / "fixtures" / "manifest_golden.json"
 CS_FILES = sorted(PACKAGE.rglob("*.cs"))
 EXPECTED_EDITOR_FILES = {
-    "GroundedPipeline.Editor.asmdef",
-    "GroundedPipelinePostprocessor.cs",
+    "TinyworldPipeline.Editor.asmdef",
+    "TinyworldPipelinePostprocessor.cs",
     "PipelineManifest.cs",
     "ManifestLocator.cs",
     "UrpMaterialBuilder.cs",
@@ -63,9 +63,9 @@ def strip_code(source: str) -> str:
 # ------------------------------------------------------------------------------ package.json
 def test_package_json_matches_plan_12_4_3() -> None:
     doc = json.loads((PACKAGE / "package.json").read_text(encoding="utf-8"))
-    assert doc["name"] == "com.studio.grounded-pipeline"
+    assert doc["name"] == "com.studio.tinyworld"
     assert doc["version"] == "0.1.0"
-    assert doc["displayName"] == "Grounded Pipeline Importer"
+    assert doc["displayName"] == "Tinyworld Pipeline Importer"
     assert doc["unity"] == "6000.0"
     assert doc["dependencies"] == {"com.unity.render-pipelines.universal": "17.0.0"}
 
@@ -74,15 +74,15 @@ def test_expected_files_exist() -> None:
     assert {
         p.name for p in EDITOR.iterdir() if p.suffix in {".cs", ".asmdef"}
     } == EXPECTED_EDITOR_FILES
-    assert (TESTS / "GroundedPipeline.Editor.Tests.asmdef").exists()
+    assert (TESTS / "TinyworldPipeline.Editor.Tests.asmdef").exists()
     assert (TESTS / "ManifestLoadTests.cs").exists()
     assert (PACKAGE / "README.md").exists()
 
 
 # ------------------------------------------------------------------------------ asmdefs
 def test_editor_asmdef_is_editor_only_and_references_urp() -> None:
-    doc = json.loads((EDITOR / "GroundedPipeline.Editor.asmdef").read_text(encoding="utf-8"))
-    assert doc["name"] == "GroundedPipeline.Editor"
+    doc = json.loads((EDITOR / "TinyworldPipeline.Editor.asmdef").read_text(encoding="utf-8"))
+    assert doc["name"] == "TinyworldPipeline.Editor"
     assert doc["includePlatforms"] == ["Editor"]
     assert {
         "Unity.RenderPipelines.Universal.Runtime",
@@ -93,9 +93,9 @@ def test_editor_asmdef_is_editor_only_and_references_urp() -> None:
 
 
 def test_tests_asmdef_references_editor_assembly_and_test_runner() -> None:
-    doc = json.loads((TESTS / "GroundedPipeline.Editor.Tests.asmdef").read_text(encoding="utf-8"))
+    doc = json.loads((TESTS / "TinyworldPipeline.Editor.Tests.asmdef").read_text(encoding="utf-8"))
     assert doc["includePlatforms"] == ["Editor"]
-    assert {"GroundedPipeline.Editor", "UnityEditor.TestRunner", "UnityEngine.TestRunner"} <= set(
+    assert {"TinyworldPipeline.Editor", "UnityEditor.TestRunner", "UnityEngine.TestRunner"} <= set(
         doc["references"]
     )
     assert "nunit.framework.dll" in doc["precompiledReferences"]
@@ -107,7 +107,7 @@ def test_tests_asmdef_references_editor_assembly_and_test_runner() -> None:
 def test_cs_file_declares_namespace_and_is_brace_balanced(cs_file: Path) -> None:
     source = cs_file.read_text(encoding="utf-8")
     expected_ns = (
-        "GroundedPipeline.Editor.Tests" if cs_file.parent == TESTS else "GroundedPipeline.Editor"
+        "TinyworldPipeline.Editor.Tests" if cs_file.parent == TESTS else "TinyworldPipeline.Editor"
     )
     assert re.search(rf"^namespace {re.escape(expected_ns)}\s*$", source, re.MULTILINE), cs_file
     assert "#if UNITY_EDITOR" not in source  # Editor asmdef already restricts the platform
@@ -119,7 +119,7 @@ def test_cs_file_declares_namespace_and_is_brace_balanced(cs_file: Path) -> None
 
 
 def test_postprocessor_implements_plan_12_4_2() -> None:
-    source = (EDITOR / "GroundedPipelinePostprocessor.cs").read_text(encoding="utf-8")
+    source = (EDITOR / "TinyworldPipelinePostprocessor.cs").read_text(encoding="utf-8")
     for needle in (
         "AssetPostprocessor",
         "GetPostprocessOrder() => 100",
@@ -138,7 +138,7 @@ def test_postprocessor_implements_plan_12_4_2() -> None:
         "ModelImporterAvatarSetup.CopyFromOther",
         "ModelImporterAvatarSetup.CreateFromThisModel",
         "ImportAssetOptions.ForceUpdate",
-        '$"[GroundedPipeline] {path}: {exception.Message}"',
+        '$"[TinyworldPipeline] {path}: {exception.Message}"',
     ):
         assert needle in source, needle
     # Every Unity callback body is protected.

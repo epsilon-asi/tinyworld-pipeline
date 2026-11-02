@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from pydantic import TypeAdapter, ValidationError
 
-from grounded_pipeline.domain.ids import ModelId, RunId, Sha256, is_valid_model_id
+from tinyworld_pipeline.domain.ids import ModelId, RunId, Sha256, is_valid_model_id
 
 
 @pytest.mark.parametrize("value", ["ant", "ant_worker", "a1", "x" * 64, "0abc"])

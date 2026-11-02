@@ -25,12 +25,12 @@ from fakes.fake_scene import (
     scene_unskinned_extra,
     scene_with_rigged_mesh,
 )
-from grounded_pipeline.blender import protocol as orch
-from grounded_pipeline.blender_jobs import protocol as bj
-from grounded_pipeline.blender_jobs.errors import JobFailure
-from grounded_pipeline.blender_jobs.fbx_settings import FBX_IMPORT_KWARGS, GLB_EXPORT_KWARGS
-from grounded_pipeline.blender_jobs.jobs import JOBS, prepare_model
-from grounded_pipeline.blender_jobs.jobs.prepare_model import (
+from tinyworld_pipeline.blender import protocol as orch
+from tinyworld_pipeline.blender_jobs import protocol as bj
+from tinyworld_pipeline.blender_jobs.errors import JobFailure
+from tinyworld_pipeline.blender_jobs.fbx_settings import FBX_IMPORT_KWARGS, GLB_EXPORT_KWARGS
+from tinyworld_pipeline.blender_jobs.jobs import JOBS, prepare_model
+from tinyworld_pipeline.blender_jobs.jobs.prepare_model import (
     SUBSURF_MODIFIER,
     GeometryStrategy,
     SubdivideStrategy,
@@ -39,8 +39,8 @@ from grounded_pipeline.blender_jobs.jobs.prepare_model import (
     run_with_scene,
     select_strategy,
 )
-from grounded_pipeline.blender_jobs.scene_api import SceneApi
-from grounded_pipeline.blender_jobs.uv_heuristics import analyse
+from tinyworld_pipeline.blender_jobs.scene_api import SceneApi
+from tinyworld_pipeline.blender_jobs.uv_heuristics import analyse
 
 
 # --------------------------------------------------------------------------- helpers
@@ -451,9 +451,9 @@ def test_run_builds_scene_lazily_and_returns_json(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     scene = scene_with_rigged_mesh()
-    module = types.ModuleType("grounded_pipeline.blender_jobs.bpy_scene")
+    module = types.ModuleType("tinyworld_pipeline.blender_jobs.bpy_scene")
     module.BpyScene = lambda: scene  # type: ignore[attr-defined]
-    monkeypatch.setitem(sys.modules, "grounded_pipeline.blender_jobs.bpy_scene", module)
+    monkeypatch.setitem(sys.modules, "tinyworld_pipeline.blender_jobs.bpy_scene", module)
     raw = orch.PrepareModelParams.model_validate(bj.to_dict(make_params(tmp_path))).model_dump(
         mode="json"
     )

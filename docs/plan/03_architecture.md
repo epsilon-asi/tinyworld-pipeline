@@ -29,7 +29,7 @@ Two Python runtimes and one Unity Editor component, connected only by files and 
 │                                                                          │
 │  Asset library (filesystem) ◀──── every component reads/writes here ──▶  │
 │                                                                          │
-│  Unity Editor ─ GroundedPipeline postprocessor (C#) reads manifest.json  │
+│  Unity Editor ─ TinyworldPipeline postprocessor (C#) reads manifest.json  │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -38,8 +38,8 @@ Two Python runtimes and one Unity Editor component, connected only by files and 
 Blender ships its own Python (3.11 in 4.x) without our dependencies. Rather than pin the whole project
 to Blender's ABI (the `bpy` wheel route), the orchestrator runs on its own interpreter and talks to
 Blender through a **file-based job protocol**. Blender-side code is restricted to the standard library
-plus `bpy`, lives in its own package (`grounded_pipeline.blender_jobs`), and MUST NOT import anything
-else from `grounded_pipeline`.
+plus `bpy`, lives in its own package (`tinyworld_pipeline.blender_jobs`), and MUST NOT import anything
+else from `tinyworld_pipeline`.
 
 ## 2. Layering and dependency rules
 
@@ -58,7 +58,7 @@ Rules (enforced by `ruff`'s `TID251`/import-linter contract in CI — WP-00):
 2. `stages` never import `httpx`, `subprocess`, or `bpy`; they use ports (`Protocol`s) injected via
    `PipelineContext`.
 3. `blender_jobs` imports only stdlib + `bpy`/`bmesh`/`mathutils`. The repo's `__init__.py` MUST stay
-   dependency-free so `import grounded_pipeline.blender_jobs` works inside Blender.
+   dependency-free so `import tinyworld_pipeline.blender_jobs` works inside Blender.
 4. `cli` is the only layer allowed to `print`/render to a terminal (through `observability.console`).
 5. Tests may import anything.
 
@@ -69,12 +69,12 @@ network, or Unity.
 
 | Port (Protocol) | Module | Production adapter | Test adapter |
 |---|---|---|---|
-| `BlenderRunner` | `grounded_pipeline/blender/runner.py` | `SubprocessBlenderRunner` | `tests/fakes/fake_blender_runner.py` (scripted results) |
-| `TextureProvider` | `grounded_pipeline/texturing/provider.py` | `TripoTextureProvider` | `FakeTextureProvider` (returns a synthetic GLB) |
-| `TripoApi` | `grounded_pipeline/tripo/client.py` | `TripoClient` (httpx) | `respx` mocked transport |
-| `Sleeper` / `Clock` | `grounded_pipeline/pipeline/timing.py` | `time.sleep` / `time.monotonic` | instant fakes |
+| `BlenderRunner` | `tinyworld_pipeline/blender/runner.py` | `SubprocessBlenderRunner` | `tests/fakes/fake_blender_runner.py` (scripted results) |
+| `TextureProvider` | `tinyworld_pipeline/texturing/provider.py` | `TripoTextureProvider` | `FakeTextureProvider` (returns a synthetic GLB) |
+| `TripoApi` | `tinyworld_pipeline/tripo/client.py` | `TripoClient` (httpx) | `respx` mocked transport |
+| `Sleeper` / `Clock` | `tinyworld_pipeline/pipeline/timing.py` | `time.sleep` / `time.monotonic` | instant fakes |
 | `SceneApi` (Blender-side) | `blender_jobs/scene_api.py` | `BpyScene` | `tests/fakes/fake_scene.py` |
-| `StateStore` | `grounded_pipeline/pipeline/state_store.py` | `JsonStateStore` (filelock, atomic) | in-memory |
+| `StateStore` | `tinyworld_pipeline/pipeline/state_store.py` | `JsonStateStore` (filelock, atomic) | in-memory |
 
 Adapters are thin: translate, call, translate back. Logic lives in pure modules.
 
@@ -85,10 +85,10 @@ A **Stage** is a class with a name, a function that declares its inputs for fing
 type supports DAGs for the future pipeline.
 
 ```python
-# grounded_pipeline/pipeline/stage.py  # NORMATIVE
+# tinyworld_pipeline/pipeline/stage.py  # NORMATIVE
 from typing import Protocol
-from grounded_pipeline.domain.state import StageName, StageOutcome
-from grounded_pipeline.pipeline.context import ModelContext, PipelineContext
+from tinyworld_pipeline.domain.state import StageName, StageOutcome
+from tinyworld_pipeline.pipeline.context import ModelContext, PipelineContext
 
 class Stage(Protocol):
     name: StageName

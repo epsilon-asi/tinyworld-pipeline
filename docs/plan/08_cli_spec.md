@@ -106,5 +106,5 @@ Errors (any exit ≠ 0) include `"error": {"code": "...", "message": "..."}`.
 
 `typer.testing.CliRunner` against a `tests/fixtures/library_minimal` copy in `tmp_path`, with
 `FakeBlenderRunner` and `FakeTextureProvider` injected through a test-only entry point
-(`grounded_pipeline.cli.app.build_app(ctx_factory=...)`). Every command and every exit code path has a
+(`tinyworld_pipeline.cli.app.build_app(ctx_factory=...)`). Every command and every exit code path has a
 test; see `15_…` §6.
