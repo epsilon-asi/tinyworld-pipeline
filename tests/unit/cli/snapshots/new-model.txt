@@ -1,0 +1,20 @@
+                                                                                                    
+ Usage: gp new-model [OPTIONS] {model_id}                                                           
+                                                                                                    
+ Create models/<model_id>/ with a model.md template and the source FBX.                             
+                                                                                                    
+╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────╮
+│ *    model_id      <str>  New model id: lowercase letters, digits and underscores (2-64 chars).  │
+│                           [required]                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ *  --source                FILE  Rigged source FBX to bring in. [required]                       │
+│    --display-name          TEXT  Human-readable name.                                            │
+│    --anim                  GLOB  Animation FBX glob (repeatable).                                │
+│    --copy                        Copy the FBX (default).                                         │
+│    --move                        Move the FBX instead of copying.                                │
+│    --link                        Symlink the FBX instead of copying.                             │
+│    --library               PATH  Asset library root (same as the global option).                 │
+│    --help          -h            Show this message and exit.                                     │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

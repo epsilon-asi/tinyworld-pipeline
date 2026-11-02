@@ -1,0 +1,116 @@
+[importlinter]
+root_package = grounded_pipeline
+include_external_packages = True
+# Imports under `if TYPE_CHECKING:` are annotations only; they never create runtime coupling.
+exclude_type_checking_imports = True
+
+# 03 §2 rule: cli → pipeline → {adapters, library, config} → domain.
+[importlinter:contract:layers]
+name = Layered architecture
+type = layers
+layers =
+    grounded_pipeline.cli
+    grounded_pipeline.pipeline
+    grounded_pipeline.library
+    grounded_pipeline.blender | grounded_pipeline.texturing | grounded_pipeline.gltf | grounded_pipeline.textures | grounded_pipeline.unity
+    grounded_pipeline.tripo
+    grounded_pipeline.config
+    grounded_pipeline.domain
+
+# 03 §2 rule 1: domain is pure.
+[importlinter:contract:domain-pure]
+name = domain imports only stdlib + pydantic
+type = forbidden
+source_modules =
+    grounded_pipeline.domain
+forbidden_modules =
+    httpx
+    subprocess
+    bpy
+    bmesh
+    mathutils
+    structlog
+    typer
+    rich
+    filelock
+    pygltflib
+    PIL
+    numpy
+    grounded_pipeline.cli
+    grounded_pipeline.pipeline
+    grounded_pipeline.blender
+    grounded_pipeline.blender_jobs
+    grounded_pipeline.tripo
+    grounded_pipeline.texturing
+    grounded_pipeline.gltf
+    grounded_pipeline.textures
+    grounded_pipeline.unity
+    grounded_pipeline.library
+    grounded_pipeline.config
+    grounded_pipeline.observability
+
+# 03 §2 rule 2: stages use ports, never effects directly.
+[importlinter:contract:stages-use-ports]
+name = pipeline stages never touch httpx / subprocess / bpy
+type = forbidden
+source_modules =
+    grounded_pipeline.pipeline.stages
+forbidden_modules =
+    httpx
+    subprocess
+    bpy
+    grounded_pipeline.tripo.client
+    grounded_pipeline.blender.runner
+
+# 03 §2 rule 3: Blender-side package is a separate runtime (stdlib + bpy + numpy only).
+[importlinter:contract:blender-jobs-independent]
+name = blender_jobs imports nothing else from grounded_pipeline and no third-party packages
+type = forbidden
+source_modules =
+    grounded_pipeline.blender_jobs
+forbidden_modules =
+    grounded_pipeline.cli
+    grounded_pipeline.pipeline
+    grounded_pipeline.blender
+    grounded_pipeline.tripo
+    grounded_pipeline.texturing
+    grounded_pipeline.gltf
+    grounded_pipeline.textures
+    grounded_pipeline.unity
+    grounded_pipeline.library
+    grounded_pipeline.config
+    grounded_pipeline.domain
+    grounded_pipeline.observability
+    pydantic
+    pydantic_settings
+    httpx
+    structlog
+    typer
+    rich
+    filelock
+    pygltflib
+    PIL
+    tenacity
+    frontmatter
+
+# Nothing orchestrator-side may import bpy.
+[importlinter:contract:no-bpy-orchestrator]
+name = orchestrator never imports bpy
+type = forbidden
+source_modules =
+    grounded_pipeline.cli
+    grounded_pipeline.pipeline
+    grounded_pipeline.blender
+    grounded_pipeline.tripo
+    grounded_pipeline.texturing
+    grounded_pipeline.gltf
+    grounded_pipeline.textures
+    grounded_pipeline.unity
+    grounded_pipeline.library
+    grounded_pipeline.config
+    grounded_pipeline.domain
+    grounded_pipeline.observability
+forbidden_modules =
+    bpy
+    bmesh
+    mathutils

@@ -1,0 +1,12 @@
+                                                                                                    
+ Usage: gp unity sync [OPTIONS]                                                                     
+                                                                                                    
+ Copy output/<id>/ into <dest>/<id>/ atomically, preserving Unity .meta files.                      
+                                                                                                    
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --model    -m      ID    Model id (repeatable).                                                  │
+│ --dest             PATH  Unity import folder (default: library.unity_import_dir).                │
+│ --library          PATH  Asset library root (same as the global option).                         │
+│ --help     -h            Show this message and exit.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

@@ -1,0 +1,14 @@
+                                                                                                    
+ Usage: gp tripo [OPTIONS] COMMAND [ARGS]...                                                        
+                                                                                                    
+ Tripo account queries (no credits spent).                                                          
+                                                                                                    
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --help  -h        Show this message and exit.                                                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ───────────────────────────────────────────────────────────────────────────────────────╮
+│ balance  GET /account/balance: available and frozen credits.                                     │
+│ task     GET /tasks/{id}: status, progress, output URLs and credits.                             │
+│ usage    GET /account/usage: recent tasks and the credits they consumed.                         │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

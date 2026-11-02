@@ -1,0 +1,323 @@
+{
+  "$defs": {
+    "ManifestAnimation": {
+      "additionalProperties": false,
+      "properties": {
+        "clip_name": {
+          "title": "Clip Name",
+          "type": "string"
+        },
+        "file": {
+          "title": "File",
+          "type": "string"
+        }
+      },
+      "required": [
+        "file",
+        "clip_name"
+      ],
+      "title": "ManifestAnimation",
+      "type": "object"
+    },
+    "ManifestColor": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "title": "A",
+          "type": "number"
+        },
+        "b": {
+          "title": "B",
+          "type": "number"
+        },
+        "g": {
+          "title": "G",
+          "type": "number"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "r": {
+          "title": "R",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "r",
+        "g",
+        "b",
+        "a"
+      ],
+      "title": "ManifestColor",
+      "type": "object"
+    },
+    "ManifestFloat": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "title": "ManifestFloat",
+      "type": "object"
+    },
+    "ManifestMaterial": {
+      "additionalProperties": false,
+      "properties": {
+        "colors": {
+          "items": {
+            "$ref": "#/$defs/ManifestColor"
+          },
+          "title": "Colors",
+          "type": "array"
+        },
+        "floats": {
+          "items": {
+            "$ref": "#/$defs/ManifestFloat"
+          },
+          "title": "Floats",
+          "type": "array"
+        },
+        "keywords": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Keywords",
+          "type": "array"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "renderers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Renderers",
+          "type": "array"
+        },
+        "shader": {
+          "title": "Shader",
+          "type": "string"
+        },
+        "textures": {
+          "items": {
+            "$ref": "#/$defs/ManifestTexture"
+          },
+          "title": "Textures",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "shader",
+        "renderers",
+        "textures",
+        "floats",
+        "colors",
+        "keywords"
+      ],
+      "title": "ManifestMaterial",
+      "type": "object"
+    },
+    "ManifestProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "credits_consumed": {
+          "title": "Credits Consumed",
+          "type": "number"
+        },
+        "prompt_sha256": {
+          "title": "Prompt Sha256",
+          "type": "string"
+        },
+        "rig_fidelity": {
+          "title": "Rig Fidelity",
+          "type": "string"
+        },
+        "source_fbx_sha256": {
+          "title": "Source Fbx Sha256",
+          "type": "string"
+        },
+        "source_license": {
+          "title": "Source License",
+          "type": "string"
+        },
+        "subdivision_levels": {
+          "title": "Subdivision Levels",
+          "type": "integer"
+        },
+        "subdivision_type": {
+          "title": "Subdivision Type",
+          "type": "string"
+        },
+        "texture_provider": {
+          "title": "Texture Provider",
+          "type": "string"
+        },
+        "texture_route": {
+          "title": "Texture Route",
+          "type": "string"
+        },
+        "texture_seed": {
+          "title": "Texture Seed",
+          "type": "integer"
+        },
+        "texture_task_id": {
+          "title": "Texture Task Id",
+          "type": "string"
+        },
+        "uv_decision": {
+          "title": "Uv Decision",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_fbx_sha256",
+        "source_license",
+        "subdivision_levels",
+        "subdivision_type",
+        "uv_decision",
+        "texture_provider",
+        "texture_task_id",
+        "texture_route",
+        "texture_seed",
+        "prompt_sha256",
+        "credits_consumed",
+        "rig_fidelity"
+      ],
+      "title": "ManifestProvenance",
+      "type": "object"
+    },
+    "ManifestRig": {
+      "additionalProperties": false,
+      "properties": {
+        "animation_type": {
+          "title": "Animation Type",
+          "type": "string"
+        },
+        "avatar_mode": {
+          "title": "Avatar Mode",
+          "type": "string"
+        },
+        "root_bone": {
+          "title": "Root Bone",
+          "type": "string"
+        },
+        "source_avatar_asset_path": {
+          "title": "Source Avatar Asset Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "animation_type",
+        "avatar_mode",
+        "source_avatar_asset_path",
+        "root_bone"
+      ],
+      "title": "ManifestRig",
+      "type": "object"
+    },
+    "ManifestTexture": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "title": "File",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "slot": {
+          "title": "Slot",
+          "type": "string"
+        },
+        "srgb": {
+          "title": "Srgb",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "slot",
+        "file",
+        "srgb",
+        "kind"
+      ],
+      "title": "ManifestTexture",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "animations": {
+      "items": {
+        "$ref": "#/$defs/ManifestAnimation"
+      },
+      "title": "Animations",
+      "type": "array"
+    },
+    "display_name": {
+      "title": "Display Name",
+      "type": "string"
+    },
+    "fbx": {
+      "title": "Fbx",
+      "type": "string"
+    },
+    "generated_at": {
+      "title": "Generated At",
+      "type": "string"
+    },
+    "materials": {
+      "items": {
+        "$ref": "#/$defs/ManifestMaterial"
+      },
+      "title": "Materials",
+      "type": "array"
+    },
+    "model_id": {
+      "title": "Model Id",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/ManifestProvenance"
+    },
+    "rig": {
+      "$ref": "#/$defs/ManifestRig"
+    },
+    "schema_version": {
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "pipeline_version",
+    "generated_at",
+    "model_id",
+    "display_name",
+    "fbx",
+    "rig",
+    "materials",
+    "animations",
+    "provenance"
+  ],
+  "title": "Manifest",
+  "type": "object"
+}

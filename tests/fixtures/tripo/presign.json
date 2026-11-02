@@ -1,0 +1,8 @@
+{
+  "code": 0,
+  "data": {
+    "expires_in": 3600,
+    "file_token": "file_01J9ZK3Y5V6W7X8Y9Z0A1B2C3E",
+    "presigned_url": "https://fixture.local/presign/01J9ZK3Y5V6W7X8Y9Z0A1B2C3E?X-Amz-Signature=redacted"
+  }
+}

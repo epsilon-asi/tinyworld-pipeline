@@ -1,0 +1,7 @@
+{
+  "code": 2000,
+  "message": "The requested task does not exist or does not belong to this account",
+  "request_id": "req_01J9ZK5B6C7D8E9F0G1H2J3K4L",
+  "status": "error",
+  "suggestion": "Check the task_id; use POST /tasks/list to enumerate your tasks"
+}

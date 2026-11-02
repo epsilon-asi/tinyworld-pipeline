@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy --strict
+        entry: uv run mypy src tests tools
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: import-linter
+        name: import-linter
+        entry: uv run lint-imports
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: no-library-tree
+        name: refuse to commit anything under library/
+        entry: bash -c 'if git diff --cached --name-only | grep -E "^(library|libraries)/" ; then echo "Asset library files must never be committed."; exit 1; fi'
+        language: system
+        pass_filenames: false

@@ -1,0 +1,16 @@
+                                                                                                    
+ Usage: gp clean [OPTIONS]                                                                          
+                                                                                                    
+ Delete intermediates, deliverables and/or state of the selected models.                            
+                                                                                                    
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --model    -m      ID    Model id (repeatable).                                                  │
+│ --work                   Remove work/ (intermediates).                                           │
+│ --output                 Remove output/ (deliverables).                                          │
+│ --state                  Remove .pipeline/ (state + logs).                                       │
+│ --all                    Remove work/, output/ and .pipeline/.                                   │
+│ --yes      -y            Do not ask for confirmation.                                            │
+│ --library          PATH  Asset library root (same as the global option).                         │
+│ --help     -h            Show this message and exit.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

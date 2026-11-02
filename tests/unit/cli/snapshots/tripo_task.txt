@@ -1,0 +1,13 @@
+                                                                                                    
+ Usage: gp tripo task [OPTIONS] {task_id}                                                           
+                                                                                                    
+ GET /tasks/{id}: status, progress, output URLs and credits.                                        
+                                                                                                    
+╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────╮
+│ *    task_id      <str>  Tripo task id. [required]                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --library          PATH  Asset library root (same as the global option).                         │
+│ --help     -h            Show this message and exit.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

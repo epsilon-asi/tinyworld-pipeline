@@ -1,0 +1,38 @@
+                                                                                                    
+ Usage: gp run [OPTIONS]                                                                            
+                                                                                                    
+ Run the pipeline (discover → … → handoff) over the selected models.                                
+                                                                                                    
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --model         -m                       ID                          Model id (repeatable).      │
+│ --tag                                    TAG                         Select models by tag        │
+│                                                                      (repeatable).               │
+│ --from-stage                             <discover|prepare|texture|  First stage to run.         │
+│                                          verify|apply|export|handof  [default: discover]         │
+│                                          f>                                                      │
+│ --to-stage                               <discover|prepare|texture|  Last stage to run.          │
+│                                          verify|apply|export|handof  [default: handoff]          │
+│                                          f>                                                      │
+│ --force                                                              Ignore fingerprints for     │
+│                                                                      every stage in range.       │
+│ --force-stage                            <discover|prepare|texture|  Re-run this stage and       │
+│                                          verify|apply|export|handof  everything downstream       │
+│                                          f>                          (repeatable).               │
+│ --dry-run                                                            Show the plan and credit    │
+│                                                                      estimate; do nothing.       │
+│ --route                                  <auto|extract|bake>         Override verify.route for   │
+│                                                                      this run.                   │
+│ --concurrency                            <int range> [1<=x<=16]      Models processed in         │
+│                                                                      parallel.                   │
+│ --max-credits                            <float range> [x>=0]        Credit budget for this run. │
+│ --keep-going        --fail-fast                                      Continue other models when  │
+│                                                                      one fails.                  │
+│                                                                      [default: keep-going]       │
+│ --resume-tasks      --no-resume-tasks                                Re-attach to in-flight      │
+│                                                                      Tripo tasks.                │
+│                                                                      [default: resume-tasks]     │
+│ --library                                PATH                        Asset library root (same as │
+│                                                                      the global option).         │
+│ --help          -h                                                   Show this message and exit. │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

@@ -1,0 +1,7 @@
+{
+  "code": 1004,
+  "message": "texture_quality=fast requires model v3.5-20260815",
+  "request_id": "req_01J9ZK5B6C7D8E9F0G1H2J3K4M",
+  "status": "error",
+  "suggestion": "Set model to v3.5-20260815 or use texture_quality=standard"
+}

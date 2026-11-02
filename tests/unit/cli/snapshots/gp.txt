@@ -1,0 +1,27 @@
+                                                                                                    
+ Usage: gp [OPTIONS] COMMAND [ARGS]...                                                              
+                                                                                                    
+ Upres + retexture rigged game assets through Blender and Tripo; Unity-ready output.                
+                                                                                                    
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --library            PATH                        Asset library root (default: auto-detect).      │
+│ --json                                           Print one JSON document on stdout.              │
+│ --log-level          <debug|info|warning|error>  Console log level (default: config).            │
+│ --blender            PATH                        Blender executable override.                    │
+│ --no-color                                       Disable colours.                                │
+│ --version                                        Print the version and exit.                     │
+│ --help       -h                                  Show this message and exit.                     │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ───────────────────────────────────────────────────────────────────────────────────────╮
+│ init       Scaffold a new asset library (library.toml, style/, models/, .gitignore).             │
+│ new-model  Create models/<model_id>/ with a model.md template and the source FBX.                │
+│ validate   Check library.toml, style.md and every (or the selected) model.md; verify Blender.    │
+│ run        Run the pipeline (discover → … → handoff) over the selected models.                   │
+│ status     Show every stage's status per model, lifetime credits, last run and last error.       │
+│ clean      Delete intermediates, deliverables and/or state of the selected models.               │
+│ doctor     Check Python, Blender (+ probe job), the Tripo key (+ balance), the library and free  │
+│            disk.                                                                                 │
+│ tripo      Tripo account queries (no credits spent).                                             │
+│ unity      Unity hand-off helpers.                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# The repository is PUBLIC. Generated and licensed assets are NOT.
+# The entire asset library tree is ignored: vendor sources, reference images,
+# intermediates, outputs and pipeline state. Only the synthetic test fixture
+# library under tests/fixtures/library_minimal is tracked.
+# ---------------------------------------------------------------------------
+library/
+libraries/
+/assets/
+*.blend1
+*.blend@
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.hypothesis/
+.coverage
+.coverage.*
+coverage.json
+coverage.xml
+htmlcov/
+
+# Blender job temp dirs kept with GP_KEEP_TEMP
+gp-job-*/
+
+# Unity (the package folder itself is tracked; a scratch Unity project is not)
+unity/TestProject/
+*.meta.bak
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

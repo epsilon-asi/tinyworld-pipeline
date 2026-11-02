@@ -1,0 +1,86 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  BLENDER_VERSION: "4.5.12"
+
+jobs:
+  lint-type-test:
+    name: lint + type + test (py${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          python-version: ${{ matrix.python }}
+      - uses: extractions/setup-just@v3
+      - run: uv sync --all-extras --frozen
+      - run: just lint
+      - run: just type
+      - run: just test --cov-report=xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-py${{ matrix.python }}
+          path: |
+            coverage.xml
+            coverage.json
+
+  blender-integration:
+    name: blender integration (${{ env.BLENDER_VERSION }})
+    runs-on: ubuntu-latest
+    needs: lint-type-test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          python-version: "3.12"
+      - uses: extractions/setup-just@v3
+      - run: uv sync --all-extras --frozen
+      - name: Cache Blender
+        id: cache-blender
+        uses: actions/cache@v4
+        with:
+          path: ~/blender
+          key: blender-${{ env.BLENDER_VERSION }}-linux-x64
+      - name: Download Blender ${{ env.BLENDER_VERSION }} LTS
+        if: steps.cache-blender.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          MAJOR_MINOR="${BLENDER_VERSION%.*}"
+          FILE="blender-${BLENDER_VERSION}-linux-x64.tar.xz"
+          mkdir -p ~/blender
+          for base in \
+            "https://download.blender.org/release/Blender${MAJOR_MINOR}" \
+            "https://mirrors.ocf.berkeley.edu/blender/release/Blender${MAJOR_MINOR}" \
+            "https://ftp.nluug.nl/pub/graphics/blender/release/Blender${MAJOR_MINOR}"; do
+            if curl -fsSL --retry 3 -o "/tmp/${FILE}" "${base}/${FILE}"; then break; fi
+          done
+          tar -xJf "/tmp/${FILE}" -C ~/blender --strip-components=1
+          ~/blender/blender --version
+      - name: Blender integration tests
+        run: |
+          export GP_BLENDER_EXE="$HOME/blender/blender"
+          just test-blender
+
+  # Unity EditMode tests are manual in v1 (plan 12 §4.4). This job only validates package.json.
+  unity-package:
+    name: unity package manifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -c "import json,sys; json.load(open('unity/com.studio.grounded-pipeline/package.json'))" || echo "package.json not present yet (WP-12)"

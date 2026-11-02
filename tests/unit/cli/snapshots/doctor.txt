@@ -1,0 +1,10 @@
+                                                                                                    
+ Usage: gp doctor [OPTIONS]                                                                         
+                                                                                                    
+ Check Python, Blender (+ probe job), the Tripo key (+ balance), the library and free disk.         
+                                                                                                    
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --library          PATH  Asset library root (same as the global option).                         │
+│ --help     -h            Show this message and exit.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

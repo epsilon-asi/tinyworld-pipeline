@@ -1,0 +1,10 @@
+                                                                                                    
+ Usage: gp tripo usage [OPTIONS]                                                                    
+                                                                                                    
+ GET /account/usage: recent tasks and the credits they consumed.                                    
+                                                                                                    
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --library          PATH  Asset library root (same as the global option).                         │
+│ --help     -h            Show this message and exit.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

@@ -1,0 +1,16 @@
+# Minimal fixture library (synthetic, CC0). Only a few keys are explicit; the rest are defaults.
+schema_version = 1
+
+[library]
+name = "library_minimal"
+concurrency = 1
+
+[geometry]
+subdivision_levels = 1
+
+[texture]
+quality = "fast"
+seed = 7
+
+[tripo]
+max_credits_per_run = 50

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "pipeline_version": "0.1.0",
+  "generated_at": "2026-11-02T12:00:00Z",
+  "model_id": "cube_rigged",
+  "display_name": "Rigged Cube",
+  "fbx": "cube_rigged.fbx",
+  "rig": {
+    "animation_type": "Generic",
+    "avatar_mode": "copy_from_source",
+    "source_avatar_asset_path": "Assets/Vendor/Cubes/cube_rigged.fbx",
+    "root_bone": "Root"
+  },
+  "materials": [
+    {
+      "name": "cube_rigged_mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "renderers": [],
+      "textures": [
+        {
+          "slot": "_BaseMap",
+          "file": "textures/cube_rigged_basecolor.png",
+          "srgb": true,
+          "kind": "default"
+        },
+        {
+          "slot": "_BumpMap",
+          "file": "textures/cube_rigged_normal.png",
+          "srgb": false,
+          "kind": "normal"
+        },
+        {
+          "slot": "_MetallicGlossMap",
+          "file": "textures/cube_rigged_metallic_smoothness.png",
+          "srgb": false,
+          "kind": "default"
+        }
+      ],
+      "floats": [
+        {
+          "name": "_WorkflowMode",
+          "value": 1.0
+        },
+        {
+          "name": "_Surface",
+          "value": 0.0
+        },
+        {
+          "name": "_Smoothness",
+          "value": 1.0
+        },
+        {
+          "name": "_SmoothnessTextureChannel",
+          "value": 0.0
+        },
+        {
+          "name": "_BumpScale",
+          "value": 1.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "_BaseColor",
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0,
+          "a": 1.0
+        }
+      ],
+      "keywords": [
+        "_NORMALMAP",
+        "_METALLICSPECGLOSSMAP"
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "file": "animations/cube_rigged@walk.fbx",
+      "clip_name": "walk"
+    }
+  ],
+  "provenance": {
+    "source_fbx_sha256": "3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f3f",
+    "source_license": "CC0 — synthetic fixture",
+    "subdivision_levels": 1,
+    "subdivision_type": "catmull_clark",
+    "uv_decision": "kept",
+    "texture_provider": "tripo",
+    "texture_task_id": "task_cube_rigged_0001",
+    "texture_route": "extract",
+    "texture_seed": 4242,
+    "prompt_sha256": "a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7",
+    "credits_consumed": 20.0,
+    "rig_fidelity": "pass"
+  }
+}

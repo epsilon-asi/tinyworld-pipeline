@@ -1,0 +1,106 @@
+[project]
+name = "grounded-pipeline"
+version = "0.1.0"
+description = "Upres + retexture rigged game assets through Blender and Tripo; Unity-ready output."
+requires-python = ">=3.12,<3.14"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Epsilon ASI" }]
+dependencies = [
+  "typer>=0.15,<1.0",            # CLI (bundles rich, click)
+  "pydantic>=2.9,<3.0",          # data contracts
+  "pydantic-settings>=2.6,<3.0", # env/.env settings
+  "httpx>=0.27,<1.0",            # Tripo HTTP client (sync API)
+  "tenacity>=9.0,<10.0",         # retry policies
+  "structlog>=24.4,<26.0",       # structured logging
+  "python-frontmatter>=1.1,<2.0",# model.md / style.md front matter
+  "pygltflib>=1.16,<2.0",        # GLB parse / texture extraction
+  "numpy>=2.0,<3.0",             # fingerprints, channel packing
+  "pillow>=10.4,<13.0",          # PNG I/O, channel ops
+  "filelock>=3.16,<4.0",         # state + run locks
+  "python-ulid>=3.0,<5.0",       # run ids
+  "tomli-w>=1.1,<2.0",           # writing library.toml on `gp init` (reading uses stdlib tomllib)
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<10.0",
+  "pytest-cov>=6.0,<8.0",
+  "pytest-xdist>=3.6,<4.0",
+  "pytest-randomly>=3.15,<4.0",
+  "hypothesis>=6.112,<7.0",
+  "respx>=0.21,<1.0",            # httpx mocking
+  "mypy>=1.13,<2.0",
+  "ruff>=0.7,<1.0",
+  "import-linter>=2.1,<3.0",
+  "pre-commit>=4.0,<5.0",
+  "fake-bpy-module-4.5>=20250801",   # type stubs for bpy (mypy only; NOT a runtime fake)
+  "types-PyYAML>=6.0",               # python-frontmatter uses PyYAML
+]
+
+[project.scripts]
+gp = "grounded_pipeline.cli.app:main"
+
+[project.urls]
+Repository = "https://github.com/epsilon-asi/grounded-pipeline"
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/grounded_pipeline"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+# Coverage flags live in the `just test` recipe, not here, so `pytest -m blender` alone is not
+# failed by the coverage gate.
+markers = [
+  "blender: requires a real Blender executable (GP_BLENDER_EXE)",
+  "tripo_live: hits the real Tripo API (TRIPO_API_KEY); never run in CI",
+  "slow: > 5 s",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["grounded_pipeline"]
+omit = [
+  "src/grounded_pipeline/blender_jobs/bpy_scene.py",   # thin bpy adapter; covered by integration/blender
+  "src/grounded_pipeline/blender_jobs/entry.py",       # covered by integration/blender
+]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+skip_covered = false
+exclude_also = ["if TYPE_CHECKING:", "raise NotImplementedError", "\\.\\.\\.$"]
+
+[tool.coverage.json]
+output = "coverage.json"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+extend-exclude = ["docs"]   # plan docs contain illustrative, non-normative-format code blocks
+
+[tool.ruff.lint]
+select = ["E","F","W","I","N","UP","B","A","C4","SIM","PL","PT","RET","ARG","PTH","ERA","TID","ANN","S","RUF"]
+ignore = ["PLR0913","S101"]  # S101: asserts allowed in tests via per-file-ignores
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101","S105","S106","ANN","PLR2004","ARG"]
+"tools/**" = ["T201"]
+"src/grounded_pipeline/blender_jobs/**" = ["TID252"]
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"print".msg = "Use observability.console or structlog."
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+plugins = ["pydantic.mypy"]
+mypy_path = "src"
+[[tool.mypy.overrides]]
+module = ["pygltflib.*", "frontmatter.*"]
+ignore_missing_imports = true

@@ -1,0 +1,17 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "created_at": "2026-11-02T12:01:30Z",
+      "credits_consumed": 10.0,
+      "task_id": "task_01J9ZK4A2B3C4D5E6F7G8H9J0K",
+      "type": "texture_model"
+    },
+    {
+      "created_at": "2026-11-01T09:12:00Z",
+      "credits_consumed": 20.0,
+      "task_id": "task_01J9ZK4A2B3C4D5E6F7G8H9J0L",
+      "type": "texture_model"
+    }
+  ]
+}

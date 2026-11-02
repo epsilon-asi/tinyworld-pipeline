@@ -1,0 +1,11 @@
+                                                                                                    
+ Usage: gp status [OPTIONS]                                                                         
+                                                                                                    
+ Show every stage's status per model, lifetime credits, last run and last error.                    
+                                                                                                    
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --model    -m      ID    Model id (repeatable).                                                  │
+│ --library          PATH  Asset library root (same as the global option).                         │
+│ --help     -h            Show this message and exit.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

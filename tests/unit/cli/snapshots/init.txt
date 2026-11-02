@@ -1,0 +1,14 @@
+                                                                                                    
+ Usage: gp init [OPTIONS] [path]                                                                    
+                                                                                                    
+ Scaffold a new asset library (library.toml, style/, models/, .gitignore).                          
+                                                                                                    
+╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────╮
+│   path      <path>  Library root to create (default: --library, $GP_LIBRARY, ./library).         │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────╮
+│ --force                  Overwrite an existing library.toml (other files kept).                  │
+│ --library          PATH  Asset library root (same as the global option).                         │
+│ --help     -h            Show this message and exit.                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+

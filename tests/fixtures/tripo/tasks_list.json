@@ -1,0 +1,23 @@
+{
+  "code": 0,
+  "data": {
+    "missed": [
+      "task_does_not_exist"
+    ],
+    "tasks": {
+      "task_01J9ZK4A2B3C4D5E6F7G8H9J0K": {
+        "progress": 60,
+        "status": "running",
+        "task_id": "task_01J9ZK4A2B3C4D5E6F7G8H9J0K",
+        "type": "texture_model"
+      },
+      "task_01J9ZK4A2B3C4D5E6F7G8H9J0L": {
+        "credits_consumed": 20.0,
+        "progress": 100,
+        "status": "success",
+        "task_id": "task_01J9ZK4A2B3C4D5E6F7G8H9J0L",
+        "type": "texture_model"
+      }
+    }
+  }
+}
